@@ -3,9 +3,11 @@ body, html {
     padding: 0;
     margin: 0;
 }
+
 h1 {
     margin: 0;
 }
+
 .otsikko1 {
     font-size: 30px;
     width: 100%;
@@ -15,18 +17,34 @@ h1 {
     background-color: white;
     color: black;
 }
+
+.kuva1 {
+    margin: 0 auto;
+}
+
+.img-code {
+    width: 100%;
+    height: 400px;
+    background-image: url(images/code.jpg);
+    background-size: 100%
+}
+
 .bio {
     color: white;
 }
+
 .developers {
     color: white;
 }
+
 .aliotsikko1 {
     color: white;
 }
+
 .otsikko1, .bio, .developers, .aliotsikko1 {
     font-family: arial
 }
+
 @font-face {
     font-family: 'coolvetica';
     src: url('fonts/coolvetica_rg-webfont.woff') format('woff'),
