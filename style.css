@@ -22,6 +22,7 @@ h1 {
 img {
     height: 400px; 
     width: 100%;
+    display: block;
 }
 
 .WhiteBox{
@@ -32,6 +33,43 @@ img {
 
 .bio {
     color: white;
+    text-align: center;
+}
+
+.container {    
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.developersBox {
+    width: 200px;
+    height: 200px;    
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactUsBox {
+    width: 200px;
+    height: 200px;    
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.learnMoreBox {
+    width: 200px;
+    height: 200px;    
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .developers {
@@ -42,7 +80,7 @@ img {
     color: white;
 }
 
-.otsikko1, .bio, .developers, .aliotsikko1 {
+.otsikko1, .bio, .developers, .aliotsikko1, .learnMoreBox, .contactUsBox, .developersBox {
     font-family: arial
 }
 
