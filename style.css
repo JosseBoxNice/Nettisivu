@@ -1,63 +1,62 @@
+html {
+    height: 100vh;
+    overflow: hidden;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-y: scroll;
+}
+
 body {
+    width: 100%;
+    height: 100vh;
     background-color: black;
     padding: 0;
     margin: 0;
     line-height: 1.4;
+    perspective: 1px;
+    overflow-x: hidden;
 }
 
-h1 {
-    margin: 0;
-}
-
-/* .scrollWatcher {
+.section1, .section2 {
+    position: relative;
     width: 100%;
-    height: 10px;
-    top: 0;
-    z-index: 1000;
-    position: fixed;
-    background-color: green;
-    scale: 0 1;
-    transform-origin: left;
-    animation: scrollWatcher linear;
-    animation-timeline: scroll();
+    min-height: 100vh;
+    overflow: hidden;
+    transform-style: preserve-3d;
 }
 
-@keyframes scrollWatcher {
-    to { scale: 1 1; }
-}*/
+.section2 {
+    background-color: black;
+}
+
+.section1::before {
+    content:"";
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    background: url(images/programming.jpg) top center no-repeat;
+    background-size: cover;
+}
 
 .otsikko1 {
+    position: absolute;
     font-size: 30px;
-    width: 100;
+    width: 100%;
     height: 100px;
     padding-left: 15px;
     display: flex;
     align-items: center;
     background-color: white;
     color: #000000;
-}    
-
-.wrap {
-    height: 100vh;
-    position: relative;
-    position: sticky;
-    background: url(images/programming.jpg) no-repeat center;
-    background-size: cover;
-    overflow: hidden;
-}
-
-img {
-    position: absolute;
-    height: auto; 
-    width: 100%;
-    object-fit: contain;
-    display: block;
 }
 
 .WhiteBox {
     background-color: white;
     height: 50px;
-    width: 100%;
+    width: 100;
 }
 
 .bio {
@@ -67,7 +66,7 @@ img {
     text-align: center;
 }
 
-.container {    
+.boxes {    
     display: flex;
     gap: 50px;
     justify-content: center;
@@ -110,6 +109,7 @@ img {
 .aliotsikko1 {
     color: white;
     text-align: center;
+
 }
 
 .otsikko1, .bio, .developers, .aliotsikko1, .learnMoreBox, .contactUsBox, .developersBox {
