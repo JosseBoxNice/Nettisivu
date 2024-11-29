@@ -123,12 +123,12 @@ body {
     font-style: normal;
 }
 
-.developersBox, .contactUsBox, .learnMoreBox {
+.developersBox, .contactUsBox, .learnMoreBox, .card {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);  /* Soft shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition */
 }
 
-.developersBox:hover, .contactUsBox:hover, .learnMoreBox:hover {
+.developersBox:hover, .contactUsBox:hover, .learnMoreBox:hover, .card:hover {
     transform: translateY(-5px);  /* Slightly lift the box */
     box-shadow: 0 15px 20px rgba(255, 255, 255, 0.384);  /* Enhance the shadow on hover */
 }

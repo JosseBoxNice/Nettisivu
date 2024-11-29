@@ -22,12 +22,6 @@ document.querySelectorAll('.card').forEach(card => {
     observer.observe(card);
 });
 
-// document.body.addEventListener("scroll", () => {
-//     const section1 = document.querySelector(".section1");
-//     const scrollPosition = document.body.scrollTop;
-//     section1.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-// });
-
 document.body.addEventListener("scroll", () => {
     const section1 = document.querySelector(".section1");
     const scrollPosition = document.body.scrollTop;
