@@ -1,79 +1,173 @@
-// Game Variables
-let score = 50;
-let multiplier = 1;
-let passiveIncome = 0; // Track passive income from the second upgrade
-let passiveIncome2 = 0; // Track income from upgrade 2
-
 // DOM Elements
+const clickButton = document.getElementById('click-button');
 const scoreDisplay = document.getElementById('score');
-const clickButton = document.getElementById('clickButton');
-const shopButton = document.getElementById('shopButton');
-const shopPopup = document.getElementById('shopPopup');
-const closePopup = document.getElementById('closePopup');
+const shopButton = document.getElementById('shop-button');
+const shopPopup = document.getElementById('shop');
+const closeShop = document.getElementById('close-shop');
 const upgrade1 = document.getElementById('upgrade1');
 const upgrade2 = document.getElementById('upgrade2');
-const notification = document.getElementById('notification');
+const clickDoubler = document.getElementById('click-doubler');
+const superClicker = document.getElementById('super-clicker');
+const musicToggle = document.getElementById('music-toggle');
 
-// Function to display notifications
-function showNotification(message) {
-    notification.textContent = message; // Set the message text
-    notification.style.display = 'block'; // Show the notification
-    setTimeout(() => {
-        notification.style.display = 'none'; // Hide it after 3 seconds
-    }, 3000); // 3000ms = 3 seconds
+// Game Variables
+let score = 0;
+let clickPower = 1;
+let autoClickerActive = false;
+let autoClickPower = 0;
+let autoClickers = 0;
+
+
+// Background Music
+const backgroundMusic = new Audio('background-music.mp3');
+backgroundMusic.loop = true;
+
+// Click Sound
+const clickSound = new Audio('Audio/click1.mp3');
+
+// Update Score Display
+function updateScore() {
+    scoreDisplay.textContent = `Score: ${score}`;
 }
 
-// Click Button Functionality
+// Show Notification
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+
+    // Append to body
+    document.body.appendChild(notification);
+
+    // Slide in
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+
+    // Slide out and remove after 3 seconds
+    setTimeout(() => {
+        notification.classList.add('hide');
+        setTimeout(() => {
+            notification.remove();
+        }, 500); // Wait for the hide animation to finish
+    }, 3000);
+}
+
+// Handle Clicks
 clickButton.addEventListener('click', () => {
-    score += multiplier; // Increase score by multiplier
-    scoreDisplay.textContent = `Score: ${score.toFixed(2)}`; // Update display
+    score += clickPower;
+    updateScore();
+    clickSound.currentTime = 0; // Reset sound to allow rapid clicks
+    clickSound.play();
 });
 
-// Open Shop Pop-Up
-shopButton.addEventListener('click', () => {
-    shopPopup.style.display = 'flex'; // Show the shop pop-up
-});
-
-// Close Shop Pop-Up
-closePopup.addEventListener('click', () => {
-    shopPopup.style.display = 'none'; // Hide the shop pop-up
-});
-
-// Close Shop When Clicking Outside Content
-shopPopup.addEventListener('click', (e) => {
-    if (e.target === shopPopup) {
-        shopPopup.style.display = 'none';
-    }
-});
-
-// Upgrade 1: Cost 10 Points (click-based)
+// Shop: Upgrade Click
 upgrade1.addEventListener('click', () => {
     if (score >= 10) {
-        score -= 10; // Deduct cost
-        multiplier += 1; // Increase multiplier for clicks
-        scoreDisplay.textContent = `Score: ${score.toFixed(2)}`; // Update display
-        showNotification(`Upgrade purchased! Multiplier is now ${multiplier}`);
+        score -= 10;
+        clickPower += 1;
+        updateScore();
+        showNotification('Click Power Upgraded!', 'success');
     } else {
-        showNotification('Not enough points!');
+        showNotification('Not enough points!', 'error');
     }
 });
 
-// Upgrade 2: Cost 50 Points (passive income-based)
+// Shop: Auto-Clicker
 upgrade2.addEventListener('click', () => {
-    if (score >= 50) {
-        score -= 50; // Deduct cost
-        passiveIncome += 0.01; // Increase passive income by 1 point per second
-        scoreDisplay.textContent = `Score: ${score.toFixed(2)}`; // Update display
-        showNotification(`Passive income increased to ${passiveIncome} points per second`);
-
-        // Start generating passive income (if it's not already happening)
-        if (!this.passiveIncomeInterval) {
-            this.passiveIncomeInterval = setInterval(() => {
-                score += passiveIncome; // Add passive income to the score
-                scoreDisplay.textContent = `Score: ${score.toFixed(2)}`; // Update display
-            }, 1000);
-        }
+    if (score >= 50 && !autoClickerActive) {
+        score -= 50;
+        autoClickerActive = true;
+        autoClickPower = 1;
+        setInterval(() => {
+            score += autoClickPower;
+            updateScore();
+        }, 1000); // Adds points every second
+        updateScore();
+        showNotification('Auto-Clicker Activated!', 'success');
     } else {
-        showNotification('Not enough points!');
+        showNotification('Not enough points or Auto-Clicker already active!', 'error');
     }
 });
+
+// Upgrade Tree: Double Click Power
+clickDoubler.addEventListener('click', () => {
+    if (score >= 100) {
+        score -= 100;
+        clickPower *= 2;
+        updateScore();
+        showNotification('Click Power Doubled!', 'success');
+    } else {
+        showNotification('Not enough points!', 'error');
+    }
+});
+
+// Upgrade Tree: Super Auto-Clicker
+superClicker.addEventListener('click', () => {
+    if (score >= 250) {
+        score -= 250;
+        autoClickPower += 2;
+        updateScore();
+        showNotification('Super Auto-Clicker Purchased!', 'success');
+    } else {
+        showNotification('Not enough points!', 'error');
+    }
+});
+
+// Music Toggle
+musicToggle.addEventListener('click', () => {
+    if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        showNotification('Music Started!', 'success');
+    } else {
+        backgroundMusic.pause();
+        showNotification('Music Paused!', 'info');
+    }
+});
+
+// Open and Close Shop with Super Animations
+shopButton.addEventListener('click', () => {
+    shopPopup.classList.remove('hide');
+    shopPopup.classList.add('show');
+});
+
+closeShop.addEventListener('click', () => {
+    shopPopup.classList.remove('show');
+    shopPopup.classList.add('hide');
+});
+function buyAutoClicker() {
+    if (score >= 50) {
+        score -= 50;
+        autoClickers++;
+        showNotification("Auto Clicker Purchased!", "success");
+    } else {
+        showNotification("Not enough points for Auto Clicker!", "error");
+    }
+    updateScore();
+}
+function buyDoubleClick() {
+    if (score >= 100) {
+        score -= 100;
+        clickPower *= 2;
+        showNotification("Double Click Power Purchased!", "success");
+    } else {
+        showNotification("Not enough points for Double Click Power!", "error");
+    }
+    updateScore();
+}
+function buySoundPack() {
+    if (score >= 150) {
+        score -= 150;
+        showNotification("Cool Click Sounds Pack Purchased!", "success");
+        // Add your logic for sound packs
+    } else {
+        showNotification("Not enough points for Sound Pack!", "error");
+    }
+    updateScore();
+}
+setInterval(() => {
+    if (autoClickers > 0) {
+        score += autoClickers;
+        updateScore();
+    }
+}, 1000);

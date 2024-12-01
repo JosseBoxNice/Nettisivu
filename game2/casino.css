@@ -1,13 +1,39 @@
-html{
-    background-color: black;
-    margin: 0;
-}
-html, body {
-    margin: 0;
-}
-body{
-    background-color: black;
+body {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
 }
 
+.casino{
+    color: white;
+    font-size: 80px;
+    position: absolute;
+    top: 70px;
+}
+.button  {
+    color: rgb(255, 255, 255);   
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 320px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    font-size: 30px;
+    background-color: black;
+    border: none;
+ 
+}
+
+.tietoa{
+    color: white;
+    position: absolute;
+    top: 240px;
+    font-size: 20px;
+}

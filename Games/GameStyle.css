@@ -1,49 +1,100 @@
 /* General Styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Resoterose;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #00FF00;
+    justify-content: center;
+    height: 100%; /* Ensure the body spans the full height of the viewport */
+    margin: 0;
+    background-size: 300% 300%;
+    text-shadow: 1px 1px 4px black;
+    background-color: #000; /* Dark background */
+    overflow: hidden;
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, #ff00ff, transparent 50%),
+                radial-gradient(circle at 70% 70%, #00ffff, transparent 50%);
+    mix-blend-mode: screen;
+    opacity: 0.8;
+    z-index: -1;
 }
 a {
-margin-top: 10px;
-}
-.container {
     text-align: center;
-    height: 85%;
-    width: 85%;
-    background-color: #32CD32; /* Lighter green */
-    border: 2px solid black;
-    border-radius: 10px;
-}
-h1 {
-    margin-top: 5px;
-    font-size: 40px;
+    text-decoration: none;
 }
 
+/* Responsive & Centered Container */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    height: auto; /* Allow height to adjust dynamically */
+    max-width: 80%;
+    max-height: 80%;
+    width: 80%;
+    height: 80vh;
+    padding: 20px;
+    background-color: #32CD32;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin: 50px; /* Adds spacing for responsiveness */
+}
+
+/* Centered and Responsive h1 */
+h1 {
+    font-size: 4rem; /* Use relative units for responsiveness */
+    margin-top: 0px;
+    padding: 10px; /* Add consistent spacing inside the element */
+    border: solid pink 3px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px black;
+    width: 100%; /* Ensures it spans the container's width */
+    max-width: 700px; /* Restricts maximum size for responsiveness */
+    text-align: center; /* Centers the text inside */
+    box-sizing: border-box; /* Includes padding in element dimensions */
+}
+
+/* Font Face */
+@font-face {
+    font-family: 'Resoterose';
+    src: url('../fonts/Resoterose-K7nel.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Score Styling */
 #score {
     font-size: 2em;
-    margin: 20px 0;
+    margin-bottom: 25vh;
 }
 
 /* Button Styles */
 .button {
+    width: 28%;
+    height: auto; /* Ajust to text size */
+    font-size: 2.0rem; /* Relative font size */
+    font-family: 'Resoterose';
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 1em;
     text-align: center;
-    color: white;
     background: linear-gradient(90deg, #4caf50, #2e8b57);
     border: none;
-    border-radius: 8px;
-    text-decoration: none;
+    margin-bottom: 5vh;
+    border-radius: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
+    text-shadow: 1px 1px 4px black;
+    text-decoration: none;
+    padding: 10px 20px; /* Spacing inside button */
 }
 
 .button:hover {
@@ -57,49 +108,167 @@ h1 {
 
 /* Shop Pop-Up Styles */
 .popup {
-    display: none;
+    border-radius: 25px;
+    display: flex; /* Keep it flex by default */
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8); /* Start scaled down */
+    opacity: 0; /* Start invisible */
+    background-color: rgba(0, 0, 0, 0.781); /* Semi-transparent background */
     justify-content: center;
     align-items: center;
+    z-index: 1000;
+    pointer-events: none; /* Disable clicks when hidden */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth animations */
+}
+.popup.show {
+    transform: translate(-50%, -50%) scale(1); /* Scale to normal size */
+    opacity: 1; /* Fully visible */
+    pointer-events: all; /* Re-enable clicks */
 }
 
+.popup.hide {
+    transform: translate(-50%, -50%) scale(0.8); /* Scale down */
+    opacity: 0; /* Fade out */
+    pointer-events: none; /* Disable clicks during animation */
+}
 .popup-content {
-    background: white;
-    color: black;
-    padding: 20px;
-    border-radius: 10px;
+    background: linear-gradient(135deg, #1e90ff, #ff69b4); /* Cool gradient */
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
     text-align: center;
-    width: 300px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 500px;
+    max-width: 90%; /* Responsive */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow */
+    position: relative;
+    overflow: hidden; /* For border animation effects */
+}
+.popup-content:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(120deg, #ff007f, #00ffff, #1e90ff, #ff69b4);
+    background-size: 300% 300%;
+    z-index: -1;
+    filter: blur(10px);
+    animation: border-glow 3s infinite linear;
+}
+@keyframes border-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes glow {
+    from {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
+    to {
+        box-shadow: 0 8px 24px rgba(0, 255, 0, 0.5), inset 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+}
+.shop-item {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 8px 16px;
+}
+
+.shop-item:hover {
+    background-color: #2E8B57;
 }
 
 .close-button {
-    background: red;
+    background: linear-gradient(90deg, #ff0000, #ff4500); /* Gradient red */
     color: white;
+    font-size: 1.2em;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
     cursor: pointer;
-    margin-top: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.close-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+.close-button:active {
+    transform: scale(0.95);
+}
+.buyables {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between items */
+    margin-top: 20px;
+}
+.buyable-item {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 1.2em;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.buyable-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
 }
 
-/* Notification Styles */
+.buyable-item .buy-button {
+    background: linear-gradient(45deg, #00ff7f, #32cd32); /* Green gradient */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.buyable-item .buy-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px rgba(0, 255, 127, 0.4);
+}
+
+.buyable-item .buy-button:active {
+    transform: scale(0.95);
+}
+
 .notification {
     position: fixed;
     top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    right: -300px; /* Start off-screen */
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
-    font-size: 1.2em;
+    padding: 15px 20px;
+    font-size: 1em;
     border-radius: 5px;
-    display: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    transition: opacity 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateX(0); /* Animation target */
+    opacity: 0;
+}
+.notification.show {
+    transform: translateX(-300px); /* Slide into view */
+    opacity: 1;
+}
+
+.notification.hide {
+    transform: translateX(0); /* Slide out of view */
+    opacity: 0;
 }
