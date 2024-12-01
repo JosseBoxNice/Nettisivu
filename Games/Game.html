@@ -4,26 +4,30 @@
     <link rel="stylesheet" href="GameStyle.css">
 </head>
 <body>
-<div class="container">
-    <h1>Clicker Game</h1>
-    <div id="score">Score: 0.00</div>
-    <button id="clickButton" class="button">Click Me!</button>
-    <br>
-    <a href="#" id="shopButton" class="button">Shop</a>
+    <div class="container">
+        <h1>Clicker Game</h1>
+        <p id="score">Score: 0</p>
+        <button id="click-button" class="button">Click Me!</button>
 
-    <div id="shopPopup" class="popup">
-        <div class="popup-content">
-            <h2>Shop</h2>
-            <p>Use your points to buy upgrades!</p>
-            <button id="upgrade1">Upgrade 1: Cost 10</button><br><br>
-            <button id="upgrade2">Upgrade 2: Cost 50</button><br><br>
-            <button id="closePopup" class="close-button">Close</button>
+        <button id="shop-button" class="button">Shop</button>
+
+        <div class="popup" id="shop">
+            <div class="popup-content">
+                <h2>Shop</h2>
+                <div id="buyables">
+                    <button class="shop-item" id="upgrade1">Upgrade Click (10 pts)</button>
+                    <button class="shop-item" id="upgrade2">Auto-Clicker (50 pts)</button>
+                    <button class="shop-item" id="music-toggle">Toggle Music</button>
+                </div>
+                <div id="upgrade-tree">
+                    <h3>Upgrade Tree</h3>
+                    <button class="shop-item" id="click-doubler">Double Click Power (100 pts)</button>
+                    <button class="shop-item" id="super-clicker">Super Auto-Clicker (250 pts)</button>
+                </div>
+                <button id="close-shop" class="close-button">Close</button>
+            </div>
         </div>
     </div>
-</div>
-
-
-    <div id="notification" class="notification"></div>
 
     <script src="GameScript.js"></script>
 </body>
