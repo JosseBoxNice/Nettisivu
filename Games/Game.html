@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="GameStyle.css">
+</head>
+<body>
+<div class="container">
+    <h1>Clicker Game</h1>
+    <div id="score">Score: 0.00</div>
+    <button id="clickButton" class="button">Click Me!</button>
+    <br>
+    <a href="#" id="shopButton" class="button">Shop</a>
+
+    <div id="shopPopup" class="popup">
+        <div class="popup-content">
+            <h2>Shop</h2>
+            <p>Use your points to buy upgrades!</p>
+            <button id="upgrade1">Upgrade 1: Cost 10</button><br><br>
+            <button id="upgrade2">Upgrade 2: Cost 50</button><br><br>
+            <button id="closePopup" class="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+
+    <div id="notification" class="notification"></div>
+
+    <script src="GameScript.js"></script>
+</body>
+</html>
