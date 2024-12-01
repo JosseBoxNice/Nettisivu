@@ -54,11 +54,10 @@ body {
     background-color: black;
     color: white;
     font-size: 18px;
-   border: none;
-   position: absolute;
-   cursor: pointer;
-
-   left: 40px;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    left: 40px;
 }
 
 .otsikkobutton :hover{
@@ -102,7 +101,7 @@ body {
     display: flex;
     justify-content: center;
     font-size: 30px;
-    margin: 200px 0 500px 0;
+    margin: 200px 0 150px 0;
     opacity: 0;
     transform: translateY(20px);
     transition: transform 2.0s ease, opacity 2.0s ease;
@@ -113,7 +112,17 @@ body {
     transform: translateY(0)
 }
 
+.imageWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.images {
+
+}
+
 .heading1 {
+    white-space: normal;
     display: flex;
     justify-content: center;
     margin: 0 80% 0 0;
@@ -135,13 +144,29 @@ body {
     text-align: center;
     margin: 0 0 300px 250px;
     opacity: 0;
-    transition: margin 2.0s ease, opacity 1.5s ease;
+    transition: margin 2.0s ease, opacity 2.0s ease;
 }
 
 .bio.visible {
     opacity: 1;
     margin: 0 200px 300px 0;
-    text-align: center}
+    text-align: center;
+}
+
+.bio1 {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin: 0 0 300px 250px;
+    opacity: 0;
+    transition: margin 2.0s ease, opacity 2.0s ease;
+}
+
+.bio1.visible {
+    opacity: 1;
+    margin: 0 100px 300px 0;
+    text-align: center;
+}
 
 .underlineContainer {
     display: flex;

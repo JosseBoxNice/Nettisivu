@@ -32,6 +32,10 @@ document.querySelectorAll('.bio').forEach(bio => {
     observer.observe(bio);
 });
 
+document.querySelectorAll('.bio1').forEach(bio1 => {
+    observer.observe(bio1);
+});
+
 document.querySelectorAll('.underline').forEach(underline => {
     observer.observe(underline);
 });
