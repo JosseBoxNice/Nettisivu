@@ -8,7 +8,7 @@ body {
     margin: 0;
     background-size: 300% 300%;
     text-shadow: 1px 1px 4px black;
-    background-color: #000; /* Dark background */
+    background-color: #000;
     overflow: hidden;
 }
 body::before {
@@ -28,15 +28,13 @@ a {
     text-align: center;
     text-decoration: none;
 }
-
-/* Responsive & Centered Container */
 .container {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    height: auto; /* Allow height to adjust dynamically */
+    height: auto;
     max-width: 80%;
     max-height: 80%;
     width: 80%;
@@ -46,23 +44,21 @@ a {
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    margin: 50px; /* Adds spacing for responsiveness */
+    margin: 50px;
 }
-
 /* Centered and Responsive h1 */
 h1 {
-    font-size: 4rem; /* Use relative units for responsiveness */
+    font-size: 4rem;
     margin-top: 0px;
-    padding: 10px; /* Add consistent spacing inside the element */
+    padding: 10px;
     border: solid pink 3px;
     border-radius: 5px;
     box-shadow: 0 0 10px 2px black;
-    width: 100%; /* Ensures it spans the container's width */
-    max-width: 700px; /* Restricts maximum size for responsiveness */
-    text-align: center; /* Centers the text inside */
-    box-sizing: border-box; /* Includes padding in element dimensions */
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    box-sizing: border-box;
 }
-
 /* Font Face */
 @font-face {
     font-family: 'Resoterose';
@@ -70,22 +66,20 @@ h1 {
     font-weight: normal;
     font-style: normal;
 }
-
 /* Score Styling */
 #score {
     font-size: 2em;
     margin-bottom: 25vh;
 }
-
 /* Button Styles */
 .button {
     width: 28%;
-    height: auto; /* Ajust to text size */
-    font-size: 2.0rem; /* Relative font size */
+    height: auto;
+    font-size: 2.0rem;
     font-family: 'Resoterose';
     display: inline-block;
     text-align: center;
-    background: linear-gradient(90deg, #4caf50, #2e8b57);
+    background: linear-gradient(90deg, #51ff57, #2e8b57);
     border: none;
     margin-bottom: 5vh;
     border-radius: 15px;
@@ -94,56 +88,211 @@ h1 {
     transition: transform 0.2s, box-shadow 0.2s;
     text-shadow: 1px 1px 4px black;
     text-decoration: none;
-    padding: 10px 20px; /* Spacing inside button */
+    padding: 10px 20px;
+    overflow: hidden;
 }
-
 .button:hover {
     transform: scale(1.1);
     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
 }
-
 .button:active {
     transform: scale(0.95);
 }
-
 /* Shop Pop-Up Styles */
 .popup {
+body {
+    font-family: Resoterose;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-size: 300% 300%;
+    text-shadow: 1px 1px 4px black;
+    background-color: #000;
+    overflow: hidden;
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, #ff00ff, transparent 50%),
+                radial-gradient(circle at 70% 70%, #00ffff, transparent 50%);
+    mix-blend-mode: screen;
+    opacity: 0.8;
+    z-index: -1;
+}
+a {
+    text-align: center;
+    text-decoration: none;
+}
+/* Shop Layout */
+.popup-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    height: 40vw;
+    max-width: 1200px;
+    padding: 50px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1e90ff, #ff69b4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+/* Shop Sections */
+.shop-section {
+    border: solid 1px rgba(0, 0, 0, 0.300);
+    flex: 1;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 5x;
+    /* animation: fade-in 0.5s ease; */
+}
+/* Buttons in Shop Sections */
+.upgrade-button {
+    overflow: hidden;
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    background: linear-gradient(90deg, #32CD32, #228B22);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px black;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+.upgrade-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+.upgrade-button:disabled {
+    background: gray;
+    cursor: not-allowed;
+    opacity: 0.7;
+    overflow: hidden;
+}
+/* Notification for Purchases */
+.notification {
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateX(0);
+    opacity: 0;
+}
+.notification.show {
+    transform: translateX(-300px);
+    opacity: 1;
+}
+.notification.hide {
+    transform: translateX(0);
+    opacity: 0;
+}
+/* Close Button */
+.close-button {
+    margin-top: auto;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff4343, #ff1d19);
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: Resoterose;
+    text-shadow: 1px 1px 4px black;
+}
+.close-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+.close-button:active {
+    transform: scale(0.95);
+}
+/* Keyframes for Fade-In Animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .shop-section {
+        flex-direction: column;
+        flex: none;
+        width: 100%;
+    }
+}
+
     border-radius: 25px;
-    display: flex; /* Keep it flex by default */
+    /* display: flex; */
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.8); /* Start scaled down */
-    opacity: 0; /* Start invisible */
-    background-color: rgba(0, 0, 0, 0.781); /* Semi-transparent background */
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.781);
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    pointer-events: none; /* Disable clicks when hidden */
-    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth animations */
+    pointer-events: none;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 .popup.show {
-    transform: translate(-50%, -50%) scale(1); /* Scale to normal size */
-    opacity: 1; /* Fully visible */
-    pointer-events: all; /* Re-enable clicks */
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: all;
 }
-
 .popup.hide {
-    transform: translate(-50%, -50%) scale(0.8); /* Scale down */
-    opacity: 0; /* Fade out */
-    pointer-events: none; /* Disable clicks during animation */
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    pointer-events: none;
 }
 .popup-content {
-    background: linear-gradient(135deg, #1e90ff, #ff69b4); /* Cool gradient */
-    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 30px;
+    gap: 20px;
+    background: linear-gradient(135deg, #1e90ff, #ff69b4);
     border-radius: 20px;
     text-align: center;
     width: 500px;
-    max-width: 90%; /* Responsive */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow */
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     position: relative;
-    overflow: hidden; /* For border animation effects */
 }
 .popup-content:before {
     content: '';
@@ -156,7 +305,7 @@ h1 {
     background-size: 300% 300%;
     z-index: -1;
     filter: blur(10px);
-    animation: border-glow 3s infinite linear;
+    animation: border-glow 7s infinite linear;
 }
 @keyframes border-glow {
     0% { background-position: 0% 50%; }
@@ -171,104 +320,63 @@ h1 {
         box-shadow: 0 8px 24px rgba(0, 255, 0, 0.5), inset 0 4px 12px rgba(255, 255, 255, 0.3);
     }
 }
-.shop-item {
-    background: #4CAF50;
-    color: #fff;
-    border: none;
-    margin: 10px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    padding: 8px 16px;
-}
-
-.shop-item:hover {
-    background-color: #2E8B57;
-}
-
-.close-button {
-    background: linear-gradient(90deg, #ff0000, #ff4500); /* Gradient red */
-    color: white;
-    font-size: 1.2em;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.close-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
-}
-.close-button:active {
-    transform: scale(0.95);
-}
-.buyables {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Space between items */
-    margin-top: 20px;
-}
-.buyable-item {
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: left;
-    font-size: 1.2em;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.buyable-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
-}
-
-.buyable-item .buy-button {
-    background: linear-gradient(45deg, #00ff7f, #32cd32); /* Green gradient */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.buyable-item .buy-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 10px rgba(0, 255, 127, 0.4);
-}
-
-.buyable-item .buy-button:active {
-    transform: scale(0.95);
-}
-
 .notification {
     position: fixed;
     top: 20px;
-    right: -300px; /* Start off-screen */
-    background-color: #4CAF50;
-    color: white;
+    right: -300px;
+    background: linear-gradient(135deg, #95ff00, #0bcaff);
     padding: 15px 20px;
-    font-size: 1em;
+    font-size: 1.5em;
     border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     transition: transform 0.5s ease, opacity 0.5s ease;
-    transform: translateX(0); /* Animation target */
     opacity: 0;
+}
+.notification:before {
+    content: '';
+    background: linear-gradient(120deg, #ff0000, #0682ff, #65ff3a, #ff0080);
+    filter: blur(15px);
+    z-index: -1;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background-size: 250% 250%;
+    animation: border-glow 3s infinite linear;
 }
 .notification.show {
-    transform: translateX(-300px); /* Slide into view */
+    transform: translateX(-300px);
     opacity: 1;
 }
-
 .notification.hide {
-    transform: translateX(0); /* Slide out of view */
+    transform: translateX(0);
     opacity: 0;
+}
+.checkmark {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+.checkmark::after {
+    content: '✔';
+}
+.checkmark-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 128, 0, 0.5);
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.checkmark-container.active {
+    opacity: 1;
 }
