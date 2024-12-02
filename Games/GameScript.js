@@ -22,7 +22,7 @@ const bgMusic2 = document.getElementById('bg-music2');
 // const musicToggle = document.getElementById('music-toggle');
 
 // Game Variables
-let score = 5200;
+let score = 0;
 let clickPower = 1;
 let autoClickPower = 0;
 let isUpgrade1Bought = false;
