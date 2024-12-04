@@ -7,7 +7,7 @@ const closeShop = document.getElementById('close-shop');
 const settingsButton = document.getElementById('settings-button');
 const settingsPanel = document.getElementById('settings');
 const closeSettings = document.getElementById('close-settings');
-
+const disableBGsounds = document.getElementById('bg-music-off');
 // Upgrade Tree
 const upgrade1 = document.getElementById('upgrade1');
 const upgrade2 = document.getElementById('upgrade2');
@@ -17,17 +17,23 @@ const upgrade4 = document.getElementById('upgrade4');
 const autoClick1 = document.getElementById('auto-click1');
 const autoClick2 = document.getElementById('auto-click2');
 const autoClick3 = document.getElementById('auto-click3');
-// Music And Sounds
+// Music And Sound Buttons
 const clickS1 = document.getElementById('sound-pack1');
 const clickS2 = document.getElementById('sound-pack2');
 const bgMusic1 = document.getElementById('bg-music1');
 const bgMusic2 = document.getElementById('bg-music2');
+// Click Sounds
+const clickSound1 = new Audio('Audio/click1.mp3');
+const clickSound2 = new Audio('Audio/click2.wav');
+const clickSound3 = new Audio('Audio/click3.mp3');
+//const clickSound4 = new Audio('Audio/click4.wav');
+// Background Music
+const backgroundMusic1 = new Audio('Audio/background-music.mp3');
+//const backgroundMusic2 = new Audio('background-music2.mp3');
 
-// const clickSoundToggle = document.getElementById('click-sound-toggle');
 
-// const musicToggle = document.getElementById('music-toggle');
 // Game Variables
-let score = 500;
+let score = 1000;
 let clickPower = 1;
 let autoClickPower = 0;
 let isUpgrade1Bought = false;
@@ -41,15 +47,9 @@ let isCSound1Bought = false;
 let isCSound2Bought = false;
 let isBGMusic1Bought = false;
 let isBGMusic2Bought = false;
-// Background Music
-const backgroundMusic = new Audio('Audio/background-music.mp3');
-const backgroundMusic2 = new Audio('background-music2.mp3');
-backgroundMusic.loop = true;
-// Click Sounds
-const clickSound1 = new Audio('Audio/click1.mp3');
-const clickSound2 = new Audio('Audio/click2.wav');
-const clickSound3 = new Audio('Audio/click3.mp3');
-//const clickSound4 = new Audio('Audio/click4.wav');
+
+
+
 shopButton.addEventListener('click', () => {
     shopPopup.classList.remove('hide');
     shopPopup.classList.add('show');
@@ -93,11 +93,25 @@ function showNotification(message, type = 'success') {
         }, 500);
     }, 3000);
 }
+function allbackgroundMusic()
+{
+    backgroundMusic1.loop = true;
+    //backgroundMusic2.loop = true;
+    if (!backgroundMusic1.paused)
+    {
+        //backgroundMusic2.pause();
+        backgroundMusic1.pause();
+        showNotification('Music Disabled!', 'info');
+    }
+}
 clickButton.addEventListener('click', () => {
     score += clickPower;
     updateScore();
     clickSound3.currentTime = 0;
     clickSound3.play();
+});
+disableBGsounds.addEventListener('click', () => {
+    allbackgroundMusic();
 });
 // Shop Upgrade Click
 upgrade1.addEventListener('click', () => {
@@ -186,13 +200,18 @@ autoClick3.addEventListener('click', () => {
     }
 });
 // Music Toggle
-clickS1.addEventListener('click', () => {
-    if (backgroundMusic.paused) {
-        backgroundMusic.play();
-        showNotification('Music Started!', 'success');
-    } else {
-        backgroundMusic.pause();
-        showNotification('Music Paused!', 'info');
+bgMusic1.addEventListener('click', () => {
+    if (score >= 800) {
+        backgroundMusic1.play();
+        isBGMusic1Bought = true;
+        score -= 800;
+        markAsPurchased('#bg-music1');
+        updateScore();
+        showNotification(`BackGround Music 1 Bought!`, 'success');
+        updateUpgradeButtons();
+        if (backgroundMusic.paused) {
+            backgroundMusic.play();
+        }
     }
 });
 // Open and Close Shop

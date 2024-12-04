@@ -93,7 +93,6 @@ body {
 
 .otsikkobutton3 :hover{
    color: rgb(102, 99, 99);
-  
 }
 
 .slogan {
@@ -111,15 +110,33 @@ body {
     opacity: 1;
     transform: translateY(0)
 }
-.imageWrapper {
+
+.imgWrapper {
+    margin: 0 0 300px 0;
     display: flex;
-    justify-content: center;
+    overflow: visible;
+    gap: 50px; 
 }
+
+@keyframes appear {
+    from {
+        scale: 0,5;
+    }
+    to {
+        scale: 1;
+    }
+}
+
+.imgWrapper img {
+    border-radius: 50px;
+    animation: appear 5s linear;
+}
+
 .heading1 {
     white-space: normal;
     display: flex;
     justify-content: center;
-    margin: 0 80% 0 0;
+    margin:0 80% 0 0;
     color: white;
     opacity: 0;
     transition: margin 2.0s ease, opacity 1.5s ease;
