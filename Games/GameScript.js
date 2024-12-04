@@ -4,6 +4,10 @@ const scoreDisplay = document.getElementById('score');
 const shopButton = document.getElementById('shop-button');
 const shopPopup = document.getElementById('shop');
 const closeShop = document.getElementById('close-shop');
+const settingsButton = document.getElementById('settings-button');
+const settingsPanel = document.getElementById('settings');
+const closeSettings = document.getElementById('close-settings');
+
 // Upgrade Tree
 const upgrade1 = document.getElementById('upgrade1');
 const upgrade2 = document.getElementById('upgrade2');
@@ -18,6 +22,7 @@ const clickS1 = document.getElementById('sound-pack1');
 const clickS2 = document.getElementById('sound-pack2');
 const bgMusic1 = document.getElementById('bg-music1');
 const bgMusic2 = document.getElementById('bg-music2');
+const clickSoundToggle = document.getElementById('click-sound-toggle');
 
 // const musicToggle = document.getElementById('music-toggle');
 
@@ -38,18 +43,31 @@ let isBGMusic1Bought = false;
 let isBGMusic2Bought = false;
 // Background Music
 //const backgroundMusic = new Audio('background-music.mp3');
+//const backgroundMusic = new Audio('background-music2.mp3');
 //backgroundMusic.loop = true;
 // Click Sounds
 const clickSound1 = new Audio('Audio/click1.mp3');
-//const clickSound2 = new Audio('Audio/click2.mp3');
+const clickSound2 = new Audio('Audio/click2.mp3');
 //const clickSound3 = new Audio('Audio/click3.mp3');
-
+shopButton.addEventListener('click', () => {
+    shopPopup.classList.remove('hide');
+    shopPopup.classList.add('show');
+});
+settingsButton.addEventListener('click', () => {
+    settingsPanel.classList.remove('hide');
+    settingsPanel.classList.add('show');
+});
+closeSettings.addEventListener('click', () => {
+    settingsPanel.classList.remove('show');
+    settingsPanel.classList.add('hide');
+});
 function markAsPurchased(buttonId) {
     document.querySelector(`${buttonId} .checkmark-container`).classList.add('active');
 }
 // Update Score Display
 function updateScore() {
-    scoreDisplay.textContent = `Score: ${score}`;
+    let formattedScore = score.toFixed(1);
+    scoreDisplay.textContent = `Score: ${formattedScore}`;
 }
 // Show Notification
 function showNotification(message, type = 'success') {
@@ -66,7 +84,6 @@ function showNotification(message, type = 'success') {
     setTimeout(() => {
         notification.classList.add('show');
     }, 100);
-
     // Slide out and remove after 3 seconds
     setTimeout(() => {
         notification.classList.add('hide');
@@ -130,13 +147,15 @@ upgrade4.addEventListener('click', () => {
         updateUpgradeButtons();
     }
 });
-
 // Shop Auto-Clicker
 autoClick1.addEventListener('click', () => {
     if (score >= 50) {
         isAutoUpgrade1Bought = true;
         score -= 50;
-        autoClickPower += 1;
+        autoClickPower += 0.1;
+        setInterval(() => {
+            
+        }, 1000);
         markAsPurchased('#auto-click1');
         updateScore();
         showNotification(`Auto-Clicker Bought!<br><span>AC: ${autoClickPower}</span>`, 'success');
@@ -147,7 +166,7 @@ autoClick2.addEventListener('click', () => {
     if (score >= 250) {
         isAutoUpgrade2Bought = true;
         score -= 250;
-        autoClickPower += 2;
+        autoClickPower += 0.3;
         markAsPurchased('#auto-click2');
         updateScore();
         showNotification(`Auto-Clicker Bought!<br><span>AC: ${autoClickPower}</span>`, 'success');
@@ -158,7 +177,7 @@ autoClick3.addEventListener('click', () => {
     if (score >= 500) {
         isAutoUpgrade3Bought = true;
         score -= 500;
-        autoClickPower += 5;
+        autoClickPower += 0.5;
         markAsPurchased('#auto-click3');
         updateScore();
         showNotification(`Auto-Clicker3 Bought!<br><span>AC: ${autoClickPower}</span>`, 'success');
@@ -190,8 +209,9 @@ setInterval(() => {
         score += autoClickPower;
         updateScore();
     }
-}, 1000);
-function updateUpgradeButtons() {
+}, 100);
+function updateUpgradeButtons()
+{
     if (!isUpgrade1Bought) {
         if (score >= 100) {
             upgrade1.disabled = false;

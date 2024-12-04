@@ -9,14 +9,28 @@
         <h1>Clicker Game</h1>
         <p id="score">Score: 0</p>
         <button id="click-button" class="button">Click Me!</button>
-
         <!-- Shop Button -->
         <button id="shop-button" class="button">Shop</button>
+        <!-- Settings Button -->
+        <button id="settings-button" class="button">Settings</button>
     </div>
-
+    <!-- Settings Popup -->
+    <div id="settings" class="popup hide">
+        <div class="popup-content">
+            <h2 class="game-title">Settings</h2>
+            <label>
+                <input type="checkbox" id="bg-music-toggle"> Background Music
+            </label>
+            <label>
+                <input type="checkbox" id="click-sound-toggle"> Click Sound
+            </label>
+            <button class="close-button" id="close-settings">Close</button>
+        </div>
+    </div>
     <!-- Shop Popup -->
     <div id="shop" class="popup hide">
         <div class="popup-content">
+            <h2 class="game-title">Shop</h2>
             <!-- <h2 class="shop-title">Game Shop</h2> -->
             <div class="shop-section" id="left-upgrade-tree">
                 <h3>Upgrade Tree</h3>
