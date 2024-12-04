@@ -22,12 +22,12 @@ const clickS1 = document.getElementById('sound-pack1');
 const clickS2 = document.getElementById('sound-pack2');
 const bgMusic1 = document.getElementById('bg-music1');
 const bgMusic2 = document.getElementById('bg-music2');
-const clickSoundToggle = document.getElementById('click-sound-toggle');
+
+// const clickSoundToggle = document.getElementById('click-sound-toggle');
 
 // const musicToggle = document.getElementById('music-toggle');
-
 // Game Variables
-let score = 0;
+let score = 500;
 let clickPower = 1;
 let autoClickPower = 0;
 let isUpgrade1Bought = false;
@@ -42,13 +42,14 @@ let isCSound2Bought = false;
 let isBGMusic1Bought = false;
 let isBGMusic2Bought = false;
 // Background Music
-//const backgroundMusic = new Audio('background-music.mp3');
-//const backgroundMusic = new Audio('background-music2.mp3');
-//backgroundMusic.loop = true;
+const backgroundMusic = new Audio('Audio/background-music.mp3');
+const backgroundMusic2 = new Audio('background-music2.mp3');
+backgroundMusic.loop = true;
 // Click Sounds
 const clickSound1 = new Audio('Audio/click1.mp3');
-const clickSound2 = new Audio('Audio/click2.mp3');
-//const clickSound3 = new Audio('Audio/click3.mp3');
+const clickSound2 = new Audio('Audio/click2.wav');
+const clickSound3 = new Audio('Audio/click3.mp3');
+//const clickSound4 = new Audio('Audio/click4.wav');
 shopButton.addEventListener('click', () => {
     shopPopup.classList.remove('hide');
     shopPopup.classList.add('show');
@@ -95,8 +96,8 @@ function showNotification(message, type = 'success') {
 clickButton.addEventListener('click', () => {
     score += clickPower;
     updateScore();
-    clickSound1.currentTime = 0;
-    clickSound1.play();
+    clickSound3.currentTime = 0;
+    clickSound3.play();
 });
 // Shop Upgrade Click
 upgrade1.addEventListener('click', () => {
@@ -185,15 +186,15 @@ autoClick3.addEventListener('click', () => {
     }
 });
 // Music Toggle
-// musicToggle.addEventListener('click', () => {
-//     if (backgroundMusic.paused) {
-//         backgroundMusic.play();
-//         showNotification('Music Started!', 'success');
-//     } else {
-//         backgroundMusic.pause();
-//         showNotification('Music Paused!', 'info');
-//     }
-// });
+clickS1.addEventListener('click', () => {
+    if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        showNotification('Music Started!', 'success');
+    } else {
+        backgroundMusic.pause();
+        showNotification('Music Paused!', 'info');
+    }
+});
 // Open and Close Shop
 shopButton.addEventListener('click', () => {
     updateUpgradeButtons();

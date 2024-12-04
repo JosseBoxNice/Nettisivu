@@ -18,12 +18,36 @@
     <div id="settings" class="popup hide">
         <div class="popup-content">
             <h2 class="game-title">Settings</h2>
-            <label>
-                <input type="checkbox" id="bg-music-toggle"> Background Music
-            </label>
-            <label>
-                <input type="checkbox" id="click-sound-toggle"> Click Sound
-            </label>
+            <div class="shop-section" id="left-upgrade-tree">
+                <h3>BackGround Musics</h3>
+                <div class="radio-container">
+                    <input type="radio" name="music" id="bg-music-on" checked>
+                    <label for="bg-music-on">
+                        <span>Enable Background Music</span>
+                    </label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" name="music" id="bg-music-off">
+                    <label for="bg-music-off">
+                        <span>Disable Background Music</span>
+                    </label>
+                </div>
+            </div>
+            <div class="shop-section" id="right-auto-click-tree">
+                <h3>Click Sounds</h3>
+                <div class="radio-container">
+                    <input type="radio" name="sound" id="click-sound-on" checked>
+                    <label for="click-sound-on">
+                      <span>Enable Click Sound</span>
+                    </label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" name="sound" id="click-sound-off">
+                    <label for="click-sound-off">
+                      <span>Disable Click Sound</span>
+                    </label>
+                </div>
+            </div>
             <button class="close-button" id="close-settings">Close</button>
         </div>
     </div>
@@ -31,7 +55,6 @@
     <div id="shop" class="popup hide">
         <div class="popup-content">
             <h2 class="game-title">Shop</h2>
-            <!-- <h2 class="shop-title">Game Shop</h2> -->
             <div class="shop-section" id="left-upgrade-tree">
                 <h3>Upgrade Tree</h3>
                 <button id="upgrade1" class="upgrade-button" disabled>Upgrade 1 (Click Power +1)<br><strong>- 100 </strong>Points<div class="checkmark-container">
