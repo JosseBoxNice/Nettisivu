@@ -8,6 +8,17 @@ const settingsButton = document.getElementById('settings-button');
 const settingsPanel = document.getElementById('settings');
 const closeSettings = document.getElementById('close-settings');
 const disableBGsounds = document.getElementById('bg-music-off');
+const disableCsounds = document.getElementById('click-sound-off');
+const enableBGsound1 = document.getElementById('bg-music-on');
+const enableBGsound2 = document.getElementById('bg-music-on2');
+const enableCsound0 = document.getElementById('click-sound-on0');
+const enableCsound1 = document.getElementById('click-sound-on1');
+const enableCsound2 = document.getElementById('click-sound-on2');
+// Audio
+const bgMusicSlider = document.getElementById('bg-music-slider');
+const clickSoundSlider = document.getElementById('click-sound-slider');
+const bgMusicVolumeSpan = document.getElementById('bg-music-volume');
+const clickSoundVolumeSpan = document.getElementById('click-sound-volume');
 // Upgrade Tree
 const upgrade1 = document.getElementById('upgrade1');
 const upgrade2 = document.getElementById('upgrade2');
@@ -28,9 +39,11 @@ const clickSound2 = new Audio('Audio/click2.wav');
 const clickSound3 = new Audio('Audio/click3.mp3');
 //const clickSound4 = new Audio('Audio/click4.wav');
 // Background Music
-const backgroundMusic1 = new Audio('Audio/background-music.mp3');
-//const backgroundMusic2 = new Audio('background-music2.mp3');
-
+const backgroundMusic1 = new Audio('Audio/background-music1.mp3');
+const backgroundMusic2 = new Audio('Audio/background-music2.mp3');
+// MISC
+const notificationSound = new Audio('Audio/notification-sound.mp3');
+const buySound = new Audio('Audio/buy-sound.mp3');
 
 // Game Variables
 let score = 1000;
@@ -47,14 +60,15 @@ let isCSound1Bought = false;
 let isCSound2Bought = false;
 let isBGMusic1Bought = false;
 let isBGMusic2Bought = false;
-
-
+let currentClickSound = clickSound1;
+let selectedClickSound = clickSound1;
 
 shopButton.addEventListener('click', () => {
     shopPopup.classList.remove('hide');
     shopPopup.classList.add('show');
 });
 settingsButton.addEventListener('click', () => {
+    updateUpgradeButtons();
     settingsPanel.classList.remove('hide');
     settingsPanel.classList.add('show');
 });
@@ -62,7 +76,19 @@ closeSettings.addEventListener('click', () => {
     settingsPanel.classList.remove('show');
     settingsPanel.classList.add('hide');
 });
+bgMusicSlider.addEventListener('input', () => {
+    const volume = bgMusicSlider.value / 100;
+    backgroundMusic1.volume = volume;
+    bgMusicVolumeSpan.textContent = `${bgMusicSlider.value}%`;
+});
+clickSoundSlider.addEventListener('input', () => {
+    const volume = clickSoundSlider.value / 100;
+    clickSound1.volume = volume;
+    clickSoundVolumeSpan.textContent = `${clickSoundSlider.value}%`;
+});
 function markAsPurchased(buttonId) {
+    buySound.currentTime = 0;
+    buySound.play();
     document.querySelector(`${buttonId} .checkmark-container`).classList.add('active');
 }
 // Update Score Display
@@ -74,7 +100,8 @@ function updateScore() {
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
-
+    notificationSound.currentTime = 0;
+    notificationSound.play();
     // Allow HTML content by using innerHTML
     notification.innerHTML = message;
 
@@ -93,25 +120,94 @@ function showNotification(message, type = 'success') {
         }, 500);
     }, 3000);
 }
-function allbackgroundMusic()
+function disableallbackgroundMusic()
 {
     backgroundMusic1.loop = true;
-    //backgroundMusic2.loop = true;
-    if (!backgroundMusic1.paused)
+    backgroundMusic2.loop = true;
+    if (!backgroundMusic1.paused || !backgroundMusic2.paused)
     {
-        //backgroundMusic2.pause();
+        backgroundMusic2.pause();
         backgroundMusic1.pause();
         showNotification('Music Disabled!', 'info');
     }
 }
+function updateClickSoundSelection() {
+    let newClickSound = clickSound1; // Variable to store the new selection
+    let notificationMessage = ''; // Variable to store the notification message
+
+    if (enableCsound0.checked) {
+        newClickSound = clickSound1;
+        notificationMessage = 'Default Click Sound Enabled!';
+    }
+    if (enableCsound1.checked) {
+        newClickSound = clickSound2;
+        notificationMessage = 'Click Sound 1 Enabled!';
+    }
+    if (enableCsound2.checked) {
+        newClickSound = clickSound3;
+        notificationMessage = 'Click Sound 2 Enabled!';
+    }
+    if (disableCsounds.checked) {
+        newClickSound = 0;
+        notificationMessage = 'Click Sounds Disabled!';
+    }
+
+    // Only show the notification if the selection has changed
+    if (newClickSound !== currentClickSound) {
+        showNotification(notificationMessage, 'info');
+        currentClickSound = newClickSound; // Update the current selection
+        selectedClickSound = newClickSound; // Update the selected click sound
+    }
+}
+function clickSounds() {
+    if (selectedClickSound) {
+        selectedClickSound.currentTime = 0;
+        selectedClickSound.play();
+    }
+}
 clickButton.addEventListener('click', () => {
     score += clickPower;
+    clickSounds();
     updateScore();
-    clickSound3.currentTime = 0;
-    clickSound3.play();
 });
 disableBGsounds.addEventListener('click', () => {
-    allbackgroundMusic();
+    disableallbackgroundMusic();
+});
+disableCsounds.addEventListener('click', () => {
+    updateClickSoundSelection();
+});
+enableCsound0.addEventListener('click', () => {
+    updateClickSoundSelection();
+})
+enableCsound1.addEventListener('click', () => {
+    updateClickSoundSelection();
+})
+enableCsound2.addEventListener('click', () => {
+    updateClickSoundSelection();
+})
+enableBGsound1.addEventListener('click', () => {
+    if (backgroundMusic1.paused)
+        {
+            backgroundMusic2.pause();
+            backgroundMusic1.play();
+            showNotification('Music 1 Enabled!', 'info');
+        }
+})
+enableBGsound2.addEventListener('click', () => {
+    if (backgroundMusic2.paused)
+        {
+            backgroundMusic1.pause();
+            backgroundMusic2.play();
+            showNotification('Music 2 Enabled!', 'info');
+        }
+});
+enableBGsound1.addEventListener('click', () => {
+    if (backgroundMusic2.paused)
+        {
+            backgroundMusic1.pause();
+            backgroundMusic2.play();
+            showNotification('Music 2 Enabled!', 'info');
+        }
 });
 // Shop Upgrade Click
 upgrade1.addEventListener('click', () => {
@@ -168,12 +264,9 @@ autoClick1.addEventListener('click', () => {
         isAutoUpgrade1Bought = true;
         score -= 50;
         autoClickPower += 0.1;
-        setInterval(() => {
-            
-        }, 1000);
         markAsPurchased('#auto-click1');
         updateScore();
-        showNotification(`Auto-Clicker Bought!<br><span>AC: ${autoClickPower}</span>`, 'success');
+        showNotification(`Auto-Clicker1 Bought!<br><span>AC: ${autoClickPower}</span>`, 'success');
         updateUpgradeButtons();
     }
 });
@@ -184,7 +277,7 @@ autoClick2.addEventListener('click', () => {
         autoClickPower += 0.3;
         markAsPurchased('#auto-click2');
         updateScore();
-        showNotification(`Auto-Clicker Bought!<br><span>AC: ${autoClickPower}</span>`, 'success');
+        showNotification(`Auto-Clicker2 Bought!<br><span>AC: ${autoClickPower}</span>`, 'success');
         updateUpgradeButtons();
     }
 });
@@ -199,19 +292,45 @@ autoClick3.addEventListener('click', () => {
         updateUpgradeButtons();
     }
 });
-// Music Toggle
+// Music buy
 bgMusic1.addEventListener('click', () => {
-    if (score >= 800) {
-        backgroundMusic1.play();
+    if (score >= 600) {
         isBGMusic1Bought = true;
-        score -= 800;
+        score -= 600;
         markAsPurchased('#bg-music1');
         updateScore();
         showNotification(`BackGround Music 1 Bought!`, 'success');
         updateUpgradeButtons();
-        if (backgroundMusic.paused) {
-            backgroundMusic.play();
-        }
+    }
+});
+bgMusic2.addEventListener('click', () => {
+    if (score >= 600) {
+        isBGMusic2Bought = true;
+        score -= 600;
+        markAsPurchased('#bg-music2');
+        updateScore();
+        showNotification(`BackGround Music 2 Bought!`, 'success');
+        updateUpgradeButtons();
+    }
+});
+clickS1.addEventListener('click', () => {
+    if (score >= 300) {
+        isCSound1Bought = true;
+        score -= 300;
+        markAsPurchased('#sound-pack1');
+        updateScore();
+        showNotification(`Click Sound 1 Bought!`, 'success');
+        updateUpgradeButtons();
+    }
+});
+clickS2.addEventListener('click', () => {
+    if (score >= 300) {
+        isCSound2Bought = true;
+        score -= 300;
+        markAsPurchased('#sound-pack2');
+        updateScore();
+        showNotification(`Click Sound 2 Bought!`, 'success');
+        updateUpgradeButtons();
     }
 });
 // Open and Close Shop
@@ -282,19 +401,43 @@ function updateUpgradeButtons()
     } else {
         clickS1.disabled = true;
     }
-    if (score >= 600 && !isCSound2Bought) {
+    if (score >= 300 && !isCSound2Bought) {
         clickS2.disabled = false;
     } else {
         clickS2.disabled = true;
     }
-    if (score >= 800 && !isBGMusic1Bought) {
+    if (score >= 600 && !isBGMusic1Bought) {
         bgMusic1.disabled = false;
     } else {
         bgMusic1.disabled = true;
     }
-    if (score >= 1200 && !isBGMusic2Bought) {
+    if (score >= 600 && !isBGMusic2Bought) {
         bgMusic2.disabled = false;
     } else {
         bgMusic2.disabled = true;
+    }
+    if (!isBGMusic1Bought) {
+        enableBGsound1.disabled = true;
+    }
+    else {
+        enableBGsound1.disabled = false;
+    }
+    if (!isBGMusic2Bought) {
+        enableBGsound2.disabled = true;
+    }
+    else {
+        enableBGsound2.disabled = false;
+    }
+    if (!isCSound1Bought) {
+        enableCsound1.disabled = true;
+    }
+    else {
+        enableCsound1.disabled = false;
+    }
+    if (!isCSound2Bought) {
+        enableCsound2.disabled = true;
+    }
+    else {
+        enableCsound2.disabled = false;
     }
 }

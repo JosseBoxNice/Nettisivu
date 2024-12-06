@@ -21,27 +21,58 @@
             <div class="shop-section" id="left-upgrade-tree">
                 <h3>BackGround Musics</h3>
                 <div class="radio-container">
-                    <input type="radio" name="music" id="bg-music-on" checked>
+                    <input type="radio" name="music" id="bg-music-on" disabled>
                     <label for="bg-music-on">
-                        <span>Enable Background Music</span>
+                        <span>Enable Background Music 1</span>
                     </label>
                 </div>
                 <div class="radio-container">
-                    <input type="radio" name="music" id="bg-music-off">
+                    <input type="radio" name="music" id="bg-music-on2" disabled>
+                    <label for="bg-music-on2">
+                        <span>Enable Background Music 2</span>
+                    </label>
+                </div>
+                <div class="radio-container2">
+                    <input type="radio" name="music" id="bg-music-off" checked>
                     <label for="bg-music-off">
                         <span>Disable Background Music</span>
                     </label>
                 </div>
             </div>
+            <div class="shop-section" id="middle-sound-shop">
+                <h3>Audio</h3>
+                <div class="slider-container">
+                    <label for="bg-music-slider">BG Music</label>
+                    <input type="range" id="bg-music-slider" min="0" max="100" value="50">
+                    <span id="bg-music-volume">50%</span>
+                </div>
+                <div class="slider-container">
+                    <label for="click-sound-slider">Click Sound</label>
+                    <input type="range" id="click-sound-slider" min="0" max="100" value="50">
+                    <span id="click-sound-volume">50%</span>
+                </div>
+            </div>
             <div class="shop-section" id="right-auto-click-tree">
                 <h3>Click Sounds</h3>
                 <div class="radio-container">
-                    <input type="radio" name="sound" id="click-sound-on" checked>
-                    <label for="click-sound-on">
-                      <span>Enable Click Sound</span>
+                    <input type="radio" name="sound" id="click-sound-on0" checked>
+                    <label for="click-sound-on0">
+                      <span>Default Click Sound</span>
                     </label>
                 </div>
                 <div class="radio-container">
+                    <input type="radio" name="sound" id="click-sound-on1" disabled>
+                    <label for="click-sound-on1">
+                      <span>Enable Click Sound 1</span>
+                    </label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" name="sound" id="click-sound-on2" disabled>
+                    <label for="click-sound-on2">
+                      <span>Enable Click Sound 2</span>
+                    </label>
+                </div>
+                <div class="radio-container2">
                     <input type="radio" name="sound" id="click-sound-off">
                     <label for="click-sound-off">
                       <span>Disable Click Sound</span>
@@ -75,13 +106,13 @@
                 <button id="sound-pack1" class="upgrade-button">Click Sound 1<br><strong>- 300 </strong>Points<div class="checkmark-container">
                     <span class="checkmark"></span>
                 </div></button>
-                <button id="sound-pack2" class="upgrade-button">Click Sound 2<br><strong>- 600 </strong>Points<div class="checkmark-container">
+                <button id="sound-pack2" class="upgrade-button">Click Sound 2<br><strong>- 300 </strong>Points<div class="checkmark-container">
                     <span class="checkmark"></span>
                 </div></button>
-                <button id="bg-music1" class="upgrade-button">Background Music 1<br><strong>- 800 </strong>Points<div class="checkmark-container">
+                <button id="bg-music1" class="upgrade-button">Background Music 1<br><strong>- 600 </strong>Points<div class="checkmark-container">
                     <span class="checkmark"></span>
                 </div></button>
-                <button id="bg-music2" class="upgrade-button">Background Music 2<br><strong>- 1200 </strong>Points<div class="checkmark-container">
+                <button id="bg-music2" class="upgrade-button">Background Music 2<br><strong>- 600 </strong>Points<div class="checkmark-container">
                     <span class="checkmark"></span>
                 </div></button>
             </div>

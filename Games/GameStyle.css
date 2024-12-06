@@ -488,3 +488,122 @@ a {
   margin-left: 10px;
   font-weight: 600;
 }
+.radio-container input[type="radio"]:disabled + label {
+    color: #383535;
+    cursor: not-allowed;
+}
+.radio-container input[type="radio"]:disabled + label::before {
+    border-color: gray; /* Gray border */
+    background: gray;
+}
+.radio-container input[type="radio"]:disabled + label:hover::before {
+    border-color: gray;
+    background: gray;
+    box-shadow: 0 0px 10px 2px rgba(96, 96, 96, 0.4);
+}
+/* OFF */
+.radio-container2 {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  /* Hide the default checkbox */
+  .radio-container2 input[type="radio"] {
+      display: none;
+  }
+  /* Custom label styling */
+  .radio-container2 label {
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #9b9b9b;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+  }
+  /* Create a custom checkbox using ::before */
+  .radio-container2 label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  /* Add checkmark when checkbox is checked */
+  .radio-container2 input[type="radio"]:checked + label::before {
+    background-color: #ff0000;
+    border-color: #ff0000;
+  }
+  /* Show checkmark (✔) inside the checkbox */
+  .radio-container2 input[type="radio"]:checked + label::after {
+      content: '';
+      position: absolute;
+      top: 35%;
+      left: 1.8%;
+      width: 10px;
+      height: 10px;
+      border-radius: 25%;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 0 10px 1px #ffffff;
+  }
+  /* Hover effect for checkbox */
+  .radio-container2 label:hover::before {
+    background-color: #f1f1f1;
+    transform: scale(1.1);
+    box-shadow: 0 0px 10px 2px rgba(255, 0, 0, 0.493);
+  }
+  /* Animated transition on label hover */
+  .radio-container2 input[type="checkbox"]:checked + label::after {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+  /* Optional: Custom styling for the label text */
+  .radio-container2 label span {
+    margin-left: 10px;
+    font-weight: 600;
+  }
+  .slider-container {
+    margin: 30px;
+    text-align: center;
+}
+h3 {
+    font-size: 25px;
+}
+label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #ddddddbd;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    outline: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 20px;
+    background: #007BFF;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
