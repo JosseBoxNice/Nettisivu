@@ -46,7 +46,7 @@ const notificationSound = new Audio('Audio/notification-sound.mp3');
 const buySound = new Audio('Audio/buy-sound.mp3');
 
 // Game Variables
-let score = 1000;
+let score = 0;
 let clickPower = 1;
 let autoClickPower = 0;
 let isUpgrade1Bought = false;
