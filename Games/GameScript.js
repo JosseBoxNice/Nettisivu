@@ -79,11 +79,14 @@ closeSettings.addEventListener('click', () => {
 bgMusicSlider.addEventListener('input', () => {
     const volume = bgMusicSlider.value / 100;
     backgroundMusic1.volume = volume;
+    backgroundMusic2.volume = volume;
     bgMusicVolumeSpan.textContent = `${bgMusicSlider.value}%`;
 });
 clickSoundSlider.addEventListener('input', () => {
     const volume = clickSoundSlider.value / 100;
     clickSound1.volume = volume;
+    clickSound2.volume = volume;
+    clickSound3.volume = volume;
     clickSoundVolumeSpan.textContent = `${clickSoundSlider.value}%`;
 });
 function markAsPurchased(buttonId) {
@@ -194,14 +197,6 @@ enableBGsound1.addEventListener('click', () => {
         }
 })
 enableBGsound2.addEventListener('click', () => {
-    if (backgroundMusic2.paused)
-        {
-            backgroundMusic1.pause();
-            backgroundMusic2.play();
-            showNotification('Music 2 Enabled!', 'info');
-        }
-});
-enableBGsound1.addEventListener('click', () => {
     if (backgroundMusic2.paused)
         {
             backgroundMusic1.pause();

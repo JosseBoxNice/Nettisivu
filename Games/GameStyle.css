@@ -426,6 +426,7 @@ a {
   flex-direction: column;
   margin: 20px;
   font-family: Arial, sans-serif;
+  gap: 10px;
 }
 /* Hide the default checkbox */
 .radio-container input[type="radio"] {
@@ -463,12 +464,13 @@ a {
 /* Show checkmark (✔) inside the checkbox */
 .radio-container input[type="radio"]:checked + label::after {
     content: '';
-    position: absolute;
-    top: 35%;
-    left: 1.8%;
-    width: 10px;
+    position: flex; /* Use absolute positioning to control placement */
+    top: 51%; /* Center vertically */
+    left: 4.3%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset for perfect centering */
+    width: 10px; /* Adjust size of the checkmark */
     height: 10px;
-    border-radius: 25%;
+    border-radius: 50%; /* Makes it circular */
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 10px 1px #ffffff;
 }
@@ -606,4 +608,4 @@ input[type="range"]::-webkit-slider-thumb {
 
 input[type="range"]:hover {
     opacity: 1;
-}
+}  
