@@ -1,3 +1,4 @@
+
 html {
     height: 100vh;
     overflow: hidden;
@@ -17,7 +18,112 @@ body {
     overflow-x: hidden;
     font-family: Arial;
 }
+.otsikko1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+}
+
+.otsikkobutton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.otsikkobutton:hover {
+    color: rgb(180, 175, 175);
+}
+/* Navigation Menu */
+.nav-menu {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.nav-item {
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    border: 0.3em solid white;
+    border-radius: 0.5em;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    transition: 0.5s;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: color 0.5s ease;
+}
+
+.nav-item:hover {
+    color: black;
+    box-shadow: 0 0 5px 1px white;
+}
+.nav-item:hover a {
+    color: black;
+}
+nav ul li {
+    --c: rgb(255, 255, 255);
+    color: var(--c);
+    border: 0.3em solid var(--c);
+    border-radius: 0.5em;
+    width: 12em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    text-align: center;
+    line-height: 3em;
+    overflow: hidden;
+    z-index: 1;
+}
+nav ul li span {
+    position: absolute;
+    width: 30%;
+    height: 150%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+nav ul li span:nth-child(1) {
+    --n: 1;
+}
+
+nav ul li span:nth-child(2) {
+    --n: 2;
+}
+
+nav ul li span:nth-child(3) {
+    --n: 3;
+}
+
+nav ul li span:nth-child(4) {
+    --n: 4;
+}
+.nav-item:hover span {
+    transform: translateY(0) scale(2);
+}
 .section1, .section2 {
     position: relative;
     width: 100%;
@@ -25,7 +131,6 @@ body {
     overflow: hidden;
     transform-style: preserve-3d;
 }
-
 .section2 {
     background-color: black;
 }
@@ -38,20 +143,18 @@ body {
     background: url(https://wallpapercave.com/wp/wp9164316.jpg) top center no-repeat;
     background-size: cover;
 }
-
 .otsikko1 {
-    position: absolute;
+    flex-direction: column;
     font-size: 30px;
     width: 100%;
     height: 100px;
-    padding-left: 15px;
+    padding-left: 300px;
     display: flex;
     align-items: center;
     background-color: rgb(0, 0, 0);
     color: #ffffff;
 }
 .otsikkobutton {
-    background-color: black;
     color: white;
     font-size: 18px;
     border: none;
@@ -65,34 +168,31 @@ body {
 }
 
 .otsikkobutton2 {
-    background-color: black;
     color: white;
-    font-size: 10px;
-   border: none;
-   position: absolute;
-   cursor: pointer;
-
-   left: 900px;
-}
-
-.otsikkobutton2 :hover{
-   color: rgb(180, 175, 175);
+    font-size: 13px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    margin: 0 15px 0 15px;
 }
 
 .otsikkobutton3 {
-    background-color: rgb(255, 255, 255);
-    color: rgb(14, 0, 0);
-    font-size: 10px;
+    color: white;
+    font-size: 13px;
     border-radius: 5px;
    border: none;
-   position: absolute;
+   position: relative;
    cursor: pointer;
-
-   left: 1050px;
+   margin: 0 15px 0 15px;
 }
-
-.otsikkobutton3 :hover{
-   color: rgb(102, 99, 99);
+.otsikkobutton4 {
+    color: white;
+    font-size: 13px;
+    border-radius: 5px;
+   border: none;
+   position: relative;
+   cursor: pointer;
+   margin: 0 15px 0 15px;
 }
 
 .slogan {
@@ -114,22 +214,28 @@ body {
 .imgWrapper {
     margin: 0 0 300px 0;
     display: flex;
+    width: auto;
     overflow: visible;
     gap: 50px; 
+    animation: moveX 15s linear infinite;
 }
 
-@keyframes appear {
-    from {
-        scale: 0,5;
+@keyframes moveX {
+    0% {
+        transform: translateX(0);
     }
-    to {
-        scale: 1;
+    100% {
+        transform: translateX(-133.4vw);
     }
+}
+
+.imgWrapper:after {
+    content: '';
+    display: block;
 }
 
 .imgWrapper img {
     border-radius: 50px;
-    animation: appear 5s linear;
 }
 
 .heading1 {
