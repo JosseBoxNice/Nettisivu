@@ -43,9 +43,8 @@ document.querySelectorAll('.underline').forEach(underline => {
 document.body.addEventListener("scroll", () => {
     const section1 = document.querySelector(".section1");
     const scrollPosition = document.body.scrollTop;
-
     console.log("Scroll Position:", scrollPosition);
-    
+
     section1.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
     section1.style.transform = `translateY(${scrollPosition * 0.5}px)`;
 });
