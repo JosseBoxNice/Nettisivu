@@ -31,11 +31,6 @@ body {
     display: grid;
     grid-template-columns: auto 150px 150px 150px;
 }
-.imgText {
-    z-index: 1;
-    color: green;
-    border: solid green;
-}
 
 .otsikkoButton {
     background: none;
@@ -129,11 +124,6 @@ nav ul li span:nth-child(4) {
 }
 .nav-item:hover span {
     transform: translateY(0) scale(2);
-}
-
-.section1 {
-    border: solid green;
-    z-index: 0;
 }
 
 .section1, .section2 {
