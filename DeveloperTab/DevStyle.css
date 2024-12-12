@@ -72,5 +72,19 @@
 
 .otsikkobuttonn3 :hover{
    color: rgb(102, 99, 99);
-  
+}
+.bio {
+    position: relative;
+}
+.people{
+    color: #ffffff;
+    position: relative;
+    margin-bottom:100opx ;
+    left: 70px;
+    font-size: 15px;
+
+}
+.jv{
+    position: relative;
+    left: 90px;
 }

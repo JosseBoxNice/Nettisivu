@@ -16,8 +16,28 @@ body {
     overflow-x: hidden;
     font-family: Arial;
 }
+.otsikko1 {
+    position: fixed;
+    font-size: 30px;
+    /* width: 100vw;
+    height: 100px; */
+    color: #ffffff;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border: solid;
+}
+.navContainer {
+    display: grid;
+    grid-template-columns: auto 150px 150px 150px;
+}
+.imgText {
+    z-index: 1;
+    color: green;
+    border: solid green;
+}
 
-.otsikkobutton {
+.otsikkoButton {
     background: none;
     border: none;
     color: white;
@@ -33,9 +53,8 @@ body {
 /* Navigation Menu */
 .nav-menu {
     list-style-type: none;
-    display: flex;
     align-items: center;
-    gap: 1px;
+    border: solid;
 }
 
 .nav-item {
@@ -44,9 +63,6 @@ body {
     color: white;
     border: 0.3em solid white;
     border-radius: 0.5em;
-    width: 150px;
-    height: 50px;
-    line-height: 50px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 0.1em;
@@ -114,6 +130,12 @@ nav ul li span:nth-child(4) {
 .nav-item:hover span {
     transform: translateY(0) scale(2);
 }
+
+.section1 {
+    border: solid green;
+    z-index: 0;
+}
+
 .section1, .section2 {
     position: relative;
     width: 100%;
@@ -134,20 +156,6 @@ nav ul li span:nth-child(4) {
     background-size: cover;
 }
 
-.otsikko1 {
-    flex-direction: column;
-    position: fixed;
-    font-size: 30px;
-    width: 100vw;
-    height: 100px;
-    padding-left: 300px;
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    z-index: 999;
-    top: 0;
-    left: 0;
-}
 .otsikkobutton {
     color: white;
     font-size: 18px;
