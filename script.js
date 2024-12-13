@@ -49,6 +49,10 @@ document.body.addEventListener("scroll", () => {
     section1.style.transform = `translateY(${scrollPosition * 0.5}px)`;
 });
 
+
+document.getElementById('devsbtn').addEventListener('click', () => {
+    window.location.href = 'DeveloperTab/Developers.html';
+});
 document.querySelector('.developersBox').addEventListener('click', () => {
     window.location.href = 'DeveloperTab/Developers.html';
 });
