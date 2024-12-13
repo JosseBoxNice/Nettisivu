@@ -52,3 +52,25 @@ document.body.addEventListener("scroll", () => {
 document.querySelector('.developersBox').addEventListener('click', () => {
     window.location.href = 'DeveloperTab/Developers.html';
 });
+
+const container = document.querySelector('.particle-container');
+
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.textContent = Math.random() < 0.5 ? '1' : '0';
+
+    const size = Math.random() * 10 + 10;
+    const left = Math.random() * window.innerWidth;
+    const duration = Math.random() * 5 + 2;
+    particle.style.fontSize = `${size}px`;
+    particle.style.left = `${left}px`;
+    particle.style.animationDuration = `${duration}s`;
+
+    container.appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    }, duration * 1000);
+}
+setInterval(createParticle, 10);
