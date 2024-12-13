@@ -201,6 +201,27 @@ body {
     font-weight: bold;
 }
 
+.htmlIcon {
+    height: 50px;
+}
+
+.cssIcon {
+    height: 50px;
+}
+
+.javascriptIcon {
+    height: 50px;
+    border-radius: 7px;
+}
+
+.csharpIcon {
+    height: 50px;
+}
+
+.pythonIcon {
+    height: 50px;
+}
+
 .imgWrapper {
     margin: 0 0 300px 0;
     display: flex;
