@@ -32,7 +32,6 @@ body {
     border: none;
     color: white;
     font-size: 24px;
-    /* position: relative; */
     margin: 0 0 0 10px;
     cursor: pointer;
 }
@@ -49,10 +48,8 @@ body {
     align-items: center;
 }
 .navbaritem:hover {
-    background-size: 101% 101%;
-    animation: spring 300ms ease-out;
-    text-shadow: 0 1px 10px rgba(86, 86, 86, 0.703);
-      font-weight: bold;
+    background-size: 100% 100%;
+    transform: scale(1.1);
 }
 
 .navbaritem:active {
@@ -92,25 +89,6 @@ body {
 .navbaritem:hover::after {
   transform: scaleX(1);
 }
-  
-@keyframes spring {
-    15% {
-      -webkit-transform-origin: center center;
-      -webkit-transform: scale(1.2, 1.1);
-    }
-    40% {
-      -webkit-transform-origin: center center;
-      -webkit-transform: scale(0.95, 0.95);
-    }
-    75% {
-      -webkit-transform-origin: center center;
-      -webkit-transform: scale(1.05, 1);
-    }
-    100% {
-      -webkit-transform-origin: center center;
-      -webkit-transform: scale(1, 1);
-    }
-}
 
 .section1, .section2 {
     position: relative;
@@ -136,7 +114,6 @@ body {
     text-overflow: black;
     margin: 0 0 0 20px;
 }
-
 
 .section2 {
     background-color: black;
