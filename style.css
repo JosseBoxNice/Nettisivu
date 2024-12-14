@@ -156,47 +156,94 @@ body {
     margin: 0 15px 0 15px;
 }
 
-.slogan {
-    color: white;
+.languageBox {
+    background-color: rgb(20,20,20);
+    height: 300px;
+    width: 75vw;
+    border-radius: 0 150px 150px 0;
+    margin: 200px 0 100px 0;
     display: flex;
-    justify-content: center;
-    font-size: 30px;
-    margin: 100px 0 100px 0;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: transform 2.0s ease, opacity 2.0s ease;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 0 0 15px;
 }
 
-.slogan.visible {
-    opacity: 1;
-    transform: translateY(0)
-}
-
-.p1 {
+.solutionH1 {
     color: white;
-    font-size: 25px;
+}
+
+.solutionPar {
+    margin: 75px 0 0 0;
+    color: white;
+    font-size: 20px;
     font-weight: bold;
 }
 
-.htmlIcon {
-    height: 50px;
+.icons {
+    padding: 0 0 10px 0;
 }
 
-.cssIcon {
+.htmlIcon, .cssIcon, .javascriptIcon, .csharpIcon, .pythonIcon {
     height: 50px;
 }
 
 .javascriptIcon {
-    height: 50px;
     border-radius: 7px;
 }
 
-.csharpIcon {
-    height: 50px;
+.cheapBox {
+    background-color: rgb(20, 20, 20);
+    height: 300px;
+    margin: 0 0 100px 0;
+    display: flex;
+    justify-self: right;
+    justify-items: right;
+    display: block;
+    width: 75vw;
+    border-radius: 150px 0 0 150px;
 }
 
-.pythonIcon {
-    height: 50px;
+.cheapH1 {
+    padding: 15px 15px 0 0;
+    color: white;
+}
+
+.moneyImg {
+    height: 150px;
+    padding: 0 150px 0 0;
+}
+
+.cheapPar {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0 15px 0 0;
+    color: white;
+}
+
+.qualityBox {
+    background-color: rgb(20, 20, 20);
+    height: 300px;    
+    margin: 0 0 100px 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 15px;
+    width: 75vw;
+    border-radius: 0 150px 150px 0;
+}
+
+.qualityH1 {
+    color: white;
+}
+
+.diamondImg {
+    height: 150px;
+    width: 150px;
+}
+
+.qualityPar {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .imgWrapper {
