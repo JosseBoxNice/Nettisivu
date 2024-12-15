@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+    <title>Softa: Clicker Game</title>
+    <link rel="stylesheet" href="GameStyle.css">
+</head>
+<body>
+    <!-- Game Container -->
+    <div class="container">
+        <h1>Clicker Game</h1>
+        <p id="score">Score: 0</p>
+        <button id="click-button" class="button">Click Me!</button>
+        <!-- Shop Button -->
+        <button id="shop-button" class="button">Shop</button>
+        <!-- Settings Button -->
+        <button id="settings-button" class="button">Settings</button>
+    </div>
+    <!-- Settings Popup -->
+    <div id="settings" class="popup hide">
+        <div class="popup-content">
+            <h2 class="game-title">Settings</h2>
+            <div class="shop-section" id="left-upgrade-tree">
+                <h3>BackGround Musics</h3>
+                <div class="radio-container">
+                    <input type="radio" name="music" id="bg-music-on" disabled>
+                    <label for="bg-music-on">
+                        <span>Enable Background Music 1</span>
+                    </label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" name="music" id="bg-music-on2" disabled>
+                    <label for="bg-music-on2">
+                        <span>Enable Background Music 2</span>
+                    </label>
+                </div>
+                <div class="radio-container2">
+                    <input type="radio" name="music" id="bg-music-off" checked>
+                    <label for="bg-music-off">
+                        <span>Disable Background Music</span>
+                    </label>
+                </div>
+            </div>
+            <div class="shop-section" id="middle-sound-shop">
+                <h3>Audio</h3>
+                <div class="slider-container">
+                    <label for="bg-music-slider">BG Music</label>
+                    <input type="range" id="bg-music-slider" min="0" max="100" value="50">
+                    <span id="bg-music-volume">50%</span>
+                </div>
+                <div class="slider-container">
+                    <label for="click-sound-slider">Click Sound</label>
+                    <input type="range" id="click-sound-slider" min="0" max="100" value="50">
+                    <span id="click-sound-volume">50%</span>
+                </div>
+            </div>
+            <div class="shop-section" id="right-auto-click-tree">
+                <h3>Click Sounds</h3>
+                <div class="radio-container">
+                    <input type="radio" name="sound" id="click-sound-on0" checked>
+                    <label for="click-sound-on0">
+                      <span>Default Click Sound</span>
+                    </label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" name="sound" id="click-sound-on1" disabled>
+                    <label for="click-sound-on1">
+                      <span>Enable Click Sound 1</span>
+                    </label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" name="sound" id="click-sound-on2" disabled>
+                    <label for="click-sound-on2">
+                      <span>Enable Click Sound 2</span>
+                    </label>
+                </div>
+                <div class="radio-container2">
+                    <input type="radio" name="sound" id="click-sound-off">
+                    <label for="click-sound-off">
+                      <span>Disable Click Sound</span>
+                    </label>
+                </div>
+            </div>
+            <button class="close-button" id="close-settings">Close</button>
+        </div>
+    </div>
+    <!-- Shop Popup -->
+    <div id="shop" class="popup hide">
+        <div class="popup-content">
+            <h2 class="game-title">Shop</h2>
+            <div class="shop-section" id="left-upgrade-tree">
+                <h3>Upgrade Tree</h3>
+                <button id="upgrade1" class="upgrade-button" disabled>Upgrade 1 (Click Power +1)<br><strong>- 100 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+                <button id="upgrade2" class="upgrade-button" disabled>Upgrade 2 (Click Power +2)<br><strong>- 500 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+                <button id="upgrade3" class="upgrade-button" disabled>Upgrade 3 (Click Power +3)<br><strong>- 1000 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+                <button id="upgrade4" class="upgrade-button" disabled>Upgrade 4 (Click Power +4)<br><strong>- 3000 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+            </div>
+            <div class="shop-section" id="middle-sound-shop">
+                <h3>Sound & Music Shop</h3>
+                <button id="sound-pack1" class="upgrade-button">Click Sound 1<br><strong>- 300 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+                <button id="sound-pack2" class="upgrade-button">Click Sound 2<br><strong>- 300 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+                <button id="bg-music1" class="upgrade-button">Background Music 1<br><strong>- 600 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+                <button id="bg-music2" class="upgrade-button">Background Music 2<br><strong>- 600 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+            </div>
+            <div class="shop-section" id="right-auto-click-tree">
+                <h3>Auto-Click Upgrades</h3>
+                <button id="auto-click1" class="upgrade-button" disabled>Auto-Clicker1 +1/s<br><strong>- 50 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+                <button id="auto-click2" class="upgrade-button" disabled>Auto-Clicker2 +3/s<br><strong>- 250 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+                <button id="auto-click3" class="upgrade-button" disabled>Auto-Clicker3 +5/s<br><strong>- 500 </strong>Points<div class="checkmark-container">
+                    <span class="checkmark"></span>
+                </div></button>
+            </div>
+            <button class="close-button" id="close-shop">Close</button>
+        </div>
+    </div>
+    <script src="GameScript.js"></script>
+</body>
+</html>

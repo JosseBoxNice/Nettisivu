@@ -1,0 +1,586 @@
+/* General Styles */
+body {
+    font-family: Resoterose;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Ensure the body spans the full height of the viewport */
+    margin: 0;
+    background-size: 300% 300%;
+    text-shadow: 1px 1px 4px black;
+    background-color: #000;
+    overflow: hidden;
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, #ff00ff, transparent 50%),
+                radial-gradient(circle at 70% 70%, #00ffff, transparent 50%);
+    mix-blend-mode: screen;
+    opacity: 0.8;
+    z-index: -1;
+}
+a {
+    text-align: center;
+    text-decoration: none;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    max-width: 80%;
+    max-height: 80%;
+    width: 80%;
+    height: 80vh;
+    padding: 20px;
+    background: url(../images/GamePanel.png) center no-repeat;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin: 50px;
+}
+/* Centered and Responsive h1 */
+h1 {
+    font-size: 4rem;
+    margin-top: 0px;
+    padding: 10px;
+    border: solid pink 3px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px black;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    box-sizing: border-box;
+    background: url(../images/GamePanel.png) center;
+}
+/* Font Face */
+@font-face {
+    font-family: 'Resoterose';
+    src: url('../fonts/Resoterose-K7nel.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* Score Styling */
+#score {
+    margin-left: 11%;
+    text-align: left;
+    font-size: 2em;
+    margin-bottom: 20vh;
+    width: 400px;
+}
+/* Button Styles */
+.button {
+    width: 28%;
+    height: auto;
+    font-size: 2.0rem;
+    font-family: 'Resoterose';
+    display: inline-block;
+    text-align: center;
+    background: linear-gradient(90deg, #51ff57, #2e8b57);
+    border: none;
+    margin-bottom: 2vh;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-shadow: 1px 1px 4px black;
+    text-decoration: none;
+    padding: 10px 20px;
+    overflow: hidden;
+}
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+.button:active {
+    transform: scale(0.95);
+}
+/* Shop Pop-Up Styles */
+.popup {
+body {
+    font-family: Resoterose;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-size: 300% 300%;
+    text-shadow: 1px 1px 4px black;
+    background-color: #000;
+    overflow: hidden;
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, #ff00ff, transparent 50%),
+                radial-gradient(circle at 70% 70%, #00ffff, transparent 50%);
+    mix-blend-mode: screen;
+    opacity: 0.8;
+    z-index: -1;
+}
+a {
+    text-align: center;
+    text-decoration: none;
+}
+/* Shop Layout */
+.popup-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    height: 40vw;
+    max-width: 1200px;
+    padding: 50px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1e90ff, #ff69b4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+/* Shop Sections */
+.shop-section {
+    border: solid 1px rgba(0, 0, 0, 0.300);
+    flex: 1;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 5x;
+    animation: fade-in 0.5s ease;
+}
+/* Buttons in Shop Sections */
+.upgrade-button {
+    overflow: hidden;
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    background: linear-gradient(90deg, #32CD32, #228B22);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px black;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+.upgrade-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+.upgrade-button:disabled {
+    background: gray;
+    cursor: not-allowed;
+    opacity: 0.7;
+    overflow: hidden;
+}
+/* Notification for Purchases */
+.notification {
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateX(0);
+    opacity: 0;
+}
+.notification.show {
+    transform: translateX(-300px);
+    opacity: 1;
+}
+.notification.hide {
+    transform: translateX(0);
+    opacity: 0;
+}
+/* Close Button */
+.close-button {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+    padding: 10px 0;
+    position: absolute;
+    padding: 15px 20px;
+    bottom: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #ff4343, #ff1d19);
+    width: 15%;
+    text-shadow: 1px 1px 4px black;
+    border-radius: 10px;
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    font-family: Resoterose;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.close-button:hover {
+    transform: scale(1.1) translateX(-45%);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+.close-button:active {
+    transform: scale(0.9) translateX(-56%);
+}
+/* Keyframes for Fade-In Animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 90%;
+        padding: 20px;
+    }
+    .shop-section {
+        flex-direction: column;
+        flex: none;
+        width: 100%;
+    }
+}
+
+    border-radius: 25px;
+    /* display: flex; */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.781);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    pointer-events: none;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.popup.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: all;
+}
+.popup.hide {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    pointer-events: none;
+}
+.popup-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    gap: 20px;
+    background: linear-gradient(135deg, #1e90ff, #ff69b4);
+    border-radius: 20px;
+    text-align: center;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+.popup-content:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(120deg, #ff007f, #00ffff, #1e90ff, #ff69b4);
+    background-size: 300% 300%;
+    z-index: -1;
+    filter: blur(10px);
+    animation: border-glow 7s infinite linear;
+}
+@keyframes border-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes glow {
+    from {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
+    to {
+        box-shadow: 0 8px 24px rgba(0, 255, 0, 0.5), inset 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+}
+.notification {
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    background: linear-gradient(135deg, #95ff00, #0bcaff);
+    padding: 15px 20px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+}
+.notification:before {
+    content: '';
+    background: linear-gradient(120deg, #ff0000, #0682ff, #65ff3a, #ff0080);
+    filter: blur(15px);
+    z-index: -1;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background-size: 250% 250%;
+    animation: border-glow 3s infinite linear;
+}
+.notification.show {
+    transform: translateX(-300px);
+    opacity: 1;
+}
+.notification.hide {
+    transform: translateX(0);
+    opacity: 0;
+}
+.checkmark {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+.checkmark::after {
+    content: '✔';
+}
+.checkmark-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 128, 0, 0.5);
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.checkmark-container.active {
+    opacity: 1;
+}
+#settings-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #1c1c1c;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 30px;
+}
+#settings-panel label {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.game-title {
+    border: solid 1px rgba(0, 0, 0, 0.300);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    width: 15%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.radio-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+  gap: 10px;
+}
+/* Hide the default checkbox */
+.radio-container input[type="radio"] {
+    display: none;
+}
+/* Custom label styling */
+.radio-container label {
+  position: relative;
+  padding-left: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #9b9b9b;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+}
+/* Create a custom checkbox using ::before */
+.radio-container label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+/* Add checkmark when checkbox is checked */
+.radio-container input[type="radio"]:checked + label::before {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+/* Hover effect for checkbox */
+.radio-container label:hover::before {
+  background-color: #f1f1f1;
+  transform: scale(1.1);
+  box-shadow: 0 0px 10px 2px rgba(21, 255, 0, 0.4);
+}
+/* Animated transition on label hover */
+.radio-container input[type="checkbox"]:checked + label::after {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+/* Optional: Custom styling for the label text */
+.radio-container label span {
+  margin-left: 10px;
+  font-weight: 600;
+}
+.radio-container input[type="radio"]:disabled + label {
+    color: #383535;
+    cursor: not-allowed;
+}
+.radio-container input[type="radio"]:disabled + label::before {
+    border-color: gray; /* Gray border */
+    background: gray;
+}
+.radio-container input[type="radio"]:disabled + label:hover::before {
+    border-color: gray;
+    background: gray;
+    box-shadow: 0 0px 10px 2px rgba(96, 96, 96, 0.4);
+}
+/* OFF */
+.radio-container2 {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  /* Hide the default checkbox */
+  .radio-container2 input[type="radio"] {
+      display: none;
+  }
+  /* Custom label styling */
+  .radio-container2 label {
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #9b9b9b;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+  }
+  /* Create a custom checkbox using ::before */
+  .radio-container2 label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  /* Add checkmark when checkbox is checked */
+  .radio-container2 input[type="radio"]:checked + label::before {
+    background-color: #ff0000;
+    border-color: #ff0000;
+  }
+  /* Hover effect for checkbox */
+  .radio-container2 label:hover::before {
+    background-color: #f1f1f1;
+    transform: scale(1.1);
+    box-shadow: 0 0px 10px 2px rgba(255, 0, 0, 0.493);
+  }
+  /* Animated transition on label hover */
+  .radio-container2 input[type="checkbox"]:checked + label::after {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+  /* Optional: Custom styling for the label text */
+  .radio-container2 label span {
+    margin-left: 10px;
+    font-weight: 600;
+  }
+  .slider-container {
+    margin: 30px;
+    text-align: center;
+}
+h3 {
+    font-size: 25px;
+}
+label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #ddddddbd;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    outline: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 20px;
+    background: #007BFF;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}  

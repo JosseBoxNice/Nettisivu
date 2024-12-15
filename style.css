@@ -1,6 +1,6 @@
 html {
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 html, body {
@@ -9,14 +9,85 @@ html, body {
 }
 
 body {
-    width: 100%;
-    height: 100vh;
     background-color: black;
     padding: 0;
     margin: 0;
     line-height: 1.4;
-    perspective: 1px;
     overflow-x: hidden;
+    font-family: Arial;
+}
+.otsikko1 {
+    position: fixed;
+    font-size: 30px;
+    width: 99vw;
+    height: 100px;
+    color: #ffffff;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.otsikkoButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    margin: 0 0 0 10px;
+    cursor: pointer;
+}
+
+.otsikkobutton:hover {
+    color: rgb(180, 175, 175);
+}
+
+.navbarcontainer {
+    display: grid;
+    grid-template-columns: 100px auto 200px 200px 200px;
+    text-align: center;
+    z-index: 1;
+    align-items: center;
+}
+.navbaritem:hover {
+    background-size: 100% 100%;
+    transform: scale(1.1);
+}
+
+.navbaritem:active {
+    transform: scale(0.95);
+}
+
+.navbaritem {
+    width: 12em;
+    height: 3em;
+    margin: 20px;
+    padding: 1px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    border-radius: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: 0.5s;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.navbaritem::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #bebebe;
+  transition: transform 0.25s ease-out;
+}
+
+.navbaritem:hover::after {
+  transform: scaleX(1);
 }
 
 .section1, .section2 {
@@ -24,7 +95,24 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
-    transform-style: preserve-3d;
+    perspective: 1px;
+}
+
+.imgTextWrap {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.imgText {
+    position: absolute;
+    z-index: 999;
+    color: rgb(255, 255, 255);
+    font-size: 120px;
+    text-shadow: 0 1px 5px black;
+    text-overflow: black;
+    margin: 0 0 0 20px;
 }
 
 .section2 {
@@ -33,42 +121,233 @@ body {
 
 .section1::before {
     content:"";
-    position: absolute; 
     width: 100%;
+    position: fixed;
     height: 100%;
-    background: url(images/programming.jpg) top center no-repeat;
+    background: url(https://wallpapercave.com/wp/wp9164316.jpg) top center no-repeat;
     background-size: cover;
+} 
+
+.otsikkobutton2 {
+    color: white;
+    font-size: 13px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    margin: 0 15px 0 15px;
 }
 
-.otsikko1 {
-    position: absolute;
-    font-size: 30px;
-    width: 100%;
-    height: 100px;
-    padding-left: 15px;
+.otsikkobutton3 {
+    color: white;
+    font-size: 13px;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    margin: 0 15px 0 15px;
+}
+.otsikkobutton4 {
+    color: white;
+    font-size: 13px;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    margin: 0 15px 0 15px;
+}
+
+.languageBox {
+    background-color: rgb(20,20,20);
+    height: 300px;
+    width: 75vw;
+    border-radius: 0 150px 150px 0;
+    margin: 200px 0 100px 0;
     display: flex;
-    align-items: center;
-    background-color: white;
-    color: #000000;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 0 0 15px;
 }
 
-.WhiteBox {
-    background-color: white;
+.solutionH1 {
+    color: white;
+}
+
+.solutionPar {
+    margin: 75px 0 0 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.icons {
+    padding: 0 0 10px 0;
+}
+
+.htmlIcon, .cssIcon, .javascriptIcon, .csharpIcon, .pythonIcon {
     height: 50px;
-    width: 100;
+}
+
+.javascriptIcon {
+    border-radius: 7px;
+}
+
+.cheapBox {
+    background-color: rgb(20, 20, 20);
+    height: 300px;
+    margin: 0 0 100px 0;
+    display: flex;
+    justify-self: right;
+    justify-items: right;
+    display: block;
+    width: 75vw;
+    border-radius: 150px 0 0 150px;
+}
+
+.cheapH1 {
+    padding: 15px 15px 0 0;
+    color: white;
+}
+
+.moneyImg {
+    height: 150px;
+    padding: 0 150px 0 0;
+}
+
+.cheapPar {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0 15px 0 0;
+    color: white;
+}
+
+.qualityBox {
+    background-color: rgb(20, 20, 20);
+    height: 300px;    
+    margin: 0 0 100px 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 15px;
+    width: 75vw;
+    border-radius: 0 150px 150px 0;
+}
+
+.qualityH1 {
+    color: white;
+}
+
+.diamondImg {
+    height: 150px;
+    width: 150px;
+}
+
+.qualityPar {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.imgWrapper {
+    margin: 0 0 300px 0;
+    display: flex;
+    width: auto;
+    overflow: visible;
+    gap: 50px; 
+    animation: moveX 25s linear infinite;
+}
+
+@keyframes moveX {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-133.4vw);
+    }
+}
+
+.imgWrapper:after {
+    content: '';
+    display: block;
+}
+
+.imgWrapper img {
+    border-radius: 50px;
+}
+
+.heading1 {
+    white-space: normal;
+    display: flex;
+    justify-content: center;
+    margin:0 80% 0 0;
+    color: white;
+    opacity: 0;
+    transition: margin 2.0s ease, opacity 1.5s ease;
+}
+
+.heading1.visible {
+    display: flex;
+    justify-content: center;
+    margin: 0 465px 0 0;
+    opacity: 1;
 }
 
 .bio {
-    margin-top: 20px;
     font-size: 1.2rem;
     color: white;
     text-align: center;
+    margin: 0 0 300px 250px;
+    opacity: 0;
+    transition: margin 2.0s ease, opacity 2.0s ease;
+}
+
+.bio.visible {
+    opacity: 1;
+    margin: 0 200px 300px 0;
+    text-align: center;
+}
+
+.bio1 {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin: 0 0 300px 250px;
+    opacity: 0;
+    transition: margin 2.0s ease, opacity 2.0s ease;
+}
+
+.bio1.visible {
+    opacity: 1;
+    margin: 0 100px 300px 0;
+    text-align: center;
+}
+
+.underlineContainer {
+    display: flex;
+    justify-content: center;
+    margin: 0 260px 0 0;
+}
+
+.underline {
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    padding-bottom: 1px;
+    margin: 0 0 0 0;
+    padding-right: 0px;
+    transition: padding-right 2.0s ease;
+}
+
+.underline.visible {
+    padding-right: 400px
 }
 
 .boxes {    
     display: flex;
-    gap: 50px;
+    gap: 30px;
     justify-content: center;
+}
+
+.boxes button {
+    border: none;
 }
 
 .developersBox {
@@ -108,11 +387,7 @@ body {
 .aliotsikko1 {
     color: white;
     text-align: center;
-
-}
-
-.otsikko1, .bio, .developers, .aliotsikko1, .learnMoreBox, .contactUsBox, .developersBox {
-    font-family: arial;
+    margin: 100px 0 0 0;
 }
 
 @font-face {
@@ -152,13 +427,12 @@ body {
     max-width: 1200px;
 }
 
-/* Individual card styling */
 .card {
     background-color: white;
     padding: 25px;
     opacity: 0;
     transform: translateY(20px);
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    transition: transform 2.0s ease, opacity 1.5s ease;
     border-radius: 35px;
 }
 
@@ -180,18 +454,37 @@ body {
     color: #00aeff;
     font-weight: bold;
     transition: color 0.3s;
+    text-decoration: underline;
 }
 
 .card a:hover, .card {
     color: #0288d1;
-    transform: translateY(-5px);
 }
 
 .card.visible {
     opacity: 1;
     transform: translateY(0);
 }
-.developersBox, .contactUsBox, .learnMoreBox, .card {
-    background: linear-gradient(145deg, #22df87, #168796);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.384);
+
+.particle-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.particle {
+    position: absolute;
+    animation: fall linear infinite;
+    font-size: 5px;
+    color: rgba(0, 213, 255, 0.608);
+}
+@keyframes fall {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
 }
