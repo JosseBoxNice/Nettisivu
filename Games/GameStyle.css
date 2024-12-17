@@ -1,10 +1,9 @@
-/* General Styles */
 body {
     font-family: Resoterose;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Ensure the body spans the full height of the viewport */
+    height: 100%;
     margin: 0;
     background-size: 300% 300%;
     text-shadow: 1px 1px 4px black;
@@ -35,18 +34,18 @@ a {
     align-items: center;
     text-align: center;
     height: auto;
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 100%;
+    max-height: 100%;
     width: 80%;
     height: 80vh;
     padding: 20px;
-    background: url(../images/GamePanel.png) center no-repeat;
+    background: url(../images/GamePanel.png) center center no-repeat;
+    background-size: cover;
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     margin: 50px;
 }
-/* Centered and Responsive h1 */
 h1 {
     font-size: 4rem;
     margin-top: 0px;
@@ -76,15 +75,8 @@ h1 {
     width: 400px;
 }
 /* Button Styles */
-.button {
-    width: 28%;
-    height: auto;
-    font-size: 2.0rem;
-    font-family: 'Resoterose';
-    display: inline-block;
-    text-align: center;
+/* .button {
     background: linear-gradient(90deg, #51ff57, #2e8b57);
-    border: none;
     margin-bottom: 2vh;
     border-radius: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
@@ -94,10 +86,31 @@ h1 {
     text-decoration: none;
     padding: 10px 20px;
     overflow: hidden;
+} */
+.button {
+    font-family: 'Resoterose';
+    box-shadow: 0 0 15px 5px rgba(20, 20, 20, 0.651);
+    padding: 10px 20px;
+    margin: 10px;
+    margin-bottom: 1vh;
+    font-size: 2.0rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 0.1px rgb(102, 102, 102) solid;
+    height: auto;
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+    background: radial-gradient(circle at 30% 30%, #ff00ff, transparent 50%),
+                radial-gradient(circle at 70% 70%, #00ffff, transparent 50%);
+    border-radius: 8px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    transition: all 0.3s ease;
 }
 .button:hover {
     transform: scale(1.1);
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 5px 5px rgb(24, 24, 24);
 }
 .button:active {
     transform: scale(0.95);
@@ -140,7 +153,7 @@ a {
     justify-content: space-between;
     width: 100vw;
     height: 40vw;
-    max-width: 1200px;
+    max-width: 1500px;
     padding: 50px;
     border-radius: 20px;
     background: linear-gradient(135deg, #1e90ff, #ff69b4);
@@ -299,7 +312,7 @@ a {
     border-radius: 20px;
     text-align: center;
     width: 500px;
-    max-width: 90%;
+    /* max-width: 90%; */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     position: relative;
 }

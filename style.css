@@ -155,37 +155,40 @@ body {
     cursor: pointer;
     margin: 0 15px 0 15px;
 }
-
+.benefitBoxes {
+    text-align: left;
+    grid-gap: 25px;
+    display: grid;
+    justify-items: end;
+    margin: 0;
+    grid-template-columns: auto auto auto;
+    grid-template-areas:
+    "collabimgitem collaborationitem ."
+    "cheapitem moneyimgitem ."
+    "diamondimgitem qualityitem .";
+}
+.benefitBoxes .collaborationBox,
+.benefitBoxes .moneyImg,
+.benefitBoxes .qualityBox {
+    justify-self: start;
+}
 .collaborationBox {
-    margin: 80px 0 25px 0;
-    display: flex;
-    justify-self: center;
-    flex-direction: column;
-    gap: 50px;
-    padding: 0 0 0 15px;
+    grid-area: collaborationitem;
+    color: white;
 }
-
-.collaborationText {
-    margin: 55px 0 0 35%;
-}
-
 .collaborationImg {
-    height: 200px;
-    width: 320px;
+    grid-area: collabimgitem;
+    height: 300px;
+    width: 500px;
 }
-
+/* 
 .collaborationH1 {
-    color: rgb(223, 3, 3);
-    font-size: 40px;
-    margin: 0 0 0 0;
 }
-
 .collaborationPar {
-    margin: 35px 0 0 0;
     color: white;
     font-size: 25px;
     font-weight: bold;
-}
+} */
 
 .icons {
     padding: 0 0 10px 0;
@@ -200,71 +203,79 @@ body {
 }
 
 .cheapBox {
-    margin: 80px 0 80px 0;
+    grid-area: cheapitem;
+    color: white;
+    /* margin: 80px 0 80px 0;
+
     display: flex;
+    justify-self: center;
     display: block;
-    position: relative;
+    position: relative; */
 }
 
-.cheapText {
-    margin: 200px 0 0 15px;
+/* .cheapText {
+    margin: 200px 0 0 -30%;
 }
-
+*/
 .cheapH1 {
-    padding: 15px 15px 0 0;
     color: rgb(245, 255, 47);
     font-size: 40px;        
-    margin: 10px 0 0 0;
 }
 
 .moneyImg {
-    height: 300px;
-    padding: 0 150px 0 0;
+    grid-area: moneyimgitem;
+    height: 350px;
+    /* padding: 0 150px 0 0;
     position: absolute;
-    right: -85px;
-    top: -50px;
+    right: -65%;
+    top: -50px; */
 }
 
-.cheapPar {
+/* .cheapPar {
     font-weight: bold;
     font-size: 25px;
     padding: 0 15px 0 0;
     color: white;
     margin: 30px 0 0 2px;
-}
+} */
 
 .qualityBox {
-    margin: 0 0 100px 0;
+    grid-area: qualityitem;
+    color: white;
+    /* margin: 0 0 200px 0;
+    width: 100vw;
     position: relative;
     display: flex;
+    justify-self: center;
     flex-direction: column;
-    padding: 0 0 0 15px;
+    padding: 0 0 0 15px; */
 }
-
+/* 
 .qualityText {
-    margin-top: 15px;
+    margin: 200px 0 0 50%;
 }
 
 .qualityH1 {
     margin: 10px 0 0 0;
     color: rgb(47, 234, 255);
     font-size: 40px;
-}
+}*/
 
 .diamondImg {
-    position: absolute;
-    right: 80px;
-    top: 15%;
-    height: 150px;
-    width: 150px;
+    grid-area: diamondimgitem;
+    /* position: absolute; */
+    /* right: 60%; */
+    /* top: 170px; */
+    height: 350px;
+    width: 350px;
 }
-
+/*
 .qualityPar {
     color: white;
     font-weight: bold;
     font-size: 25px;
     margin: 20px 0 0 2px;
-}
+} */
 
 .imgWrapper {
     margin: 0 0 300px 0;
@@ -373,7 +384,6 @@ body {
 .developersBox {
     width: 200px;
     height: 200px;
-    background-color: white;
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -383,7 +393,6 @@ body {
 .contactUsBox {
     width: 200px;
     height: 200px;
-    background-color: white;
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -393,7 +402,6 @@ body {
 .learnMoreBox {
     width: 200px;
     height: 200px;
-    background-color: white;
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -419,6 +427,7 @@ body {
 }
 
 .developersBox, .contactUsBox, .learnMoreBox, .card {
+    background-color: rgba(234, 0, 255, 0.623);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);  /* Soft shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition */
 }
@@ -448,7 +457,6 @@ body {
 }
 
 .card {
-    background-color: white;
     padding: 25px;
     opacity: 0;
     transform: translateY(20px);
@@ -486,7 +494,7 @@ body {
     transform: translateY(0);
 }
 
-.particle-container {
+/* .particle-container {
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -497,7 +505,7 @@ body {
     animation: fall linear infinite;
     font-size: 5px;
     color: rgba(0, 213, 255, 0.608);
-}
+} */
 @keyframes fall {
     0% {
         transform: translateY(-10px);
