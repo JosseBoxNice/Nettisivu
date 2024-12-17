@@ -160,7 +160,7 @@ body {
     grid-gap: 25px;
     display: grid;
     justify-items: end;
-    margin: 0;
+    margin: 5vw;
     grid-template-columns: auto auto auto;
     grid-template-areas:
     "collabimgitem collaborationitem ."
