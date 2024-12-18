@@ -115,10 +115,6 @@ body {
     margin: 0 0 0 20px;
 }
 
-.section2 {
-    background-color: black;
-}
-
 .section1::before {
     content:"";
     width: 100%;
@@ -155,127 +151,172 @@ body {
     cursor: pointer;
     margin: 0 15px 0 15px;
 }
-.benefitBoxes {
-    text-align: left;
-    grid-gap: 25px;
-    display: grid;
-    justify-items: end;
-    margin: 5vw;
-    grid-template-columns: auto auto auto;
-    grid-template-areas:
-    "collabimgitem collaborationitem ."
-    "cheapitem moneyimgitem ."
-    "diamondimgitem qualityitem .";
+
+.section2 {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 80px;
+    min-height: 900px;
+    margin: 0 0 180px 0;
 }
-.benefitBoxes .collaborationBox,
-.benefitBoxes .moneyImg,
-.benefitBoxes .qualityBox {
-    justify-self: start;
-}
+
 .collaborationBox {
-    grid-area: collaborationitem;
+    margin: 180px 0 80px 0;
+    display: flex;
+    align-items: center;
+    gap: 350px;
     color: white;
 }
+
 .collaborationImg {
-    grid-area: collabimgitem;
     height: 300px;
     width: 500px;
 }
-/* 
+
+.collaborationText {
+
+    transform: translateX(-100px);
+}
+
 .collaborationH1 {
+    color: rgb(245, 255, 47);
+    font-size: 40px;
 }
 .collaborationPar {
     color: white;
     font-size: 25px;
     font-weight: bold;
-} */
+}
+
+.cheapBox {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 450px;
+    color: white;
+    margin: 0 0 80px 0;
+}
+
+.moneyImg {
+    height: 350px;
+}
+
+.cheapH1 {
+    font-size: 40px;
+    color: rgb(245, 255, 47);
+}
+
+.cheapPar {
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+}
+
+.qualityBox {
+    display: flex;
+    align-items: center;
+    gap: 500px;
+    color: white;
+}
+
+.qualityText {
+    transform: translateX(-100px)
+}
+
+.qualityH1 {
+    color: rgb(47, 234, 255);
+    font-size: 40px;
+}
+
+.diamondImg {
+    height: 350px;
+    width: 350px;
+}
+
+.qualityPar {
+    color: white;
+    font-weight: bold;  
+    font-size: 25px;
+}
+
+.section3 {
+    background-color: rgb(17, 17, 17);
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+}
+
+.iconH1 {
+    color: white;
+    font-size: 40px;   
+    margin: 0 0 0 80px;
+}
 
 .icons {
-    padding: 0 0 10px 0;
+    margin: 0 0 0 80px;
 }
 
 .htmlIcon, .cssIcon, .javascriptIcon, .csharpIcon, .pythonIcon {
-    height: 50px;
+    height: 70px;
 }
 
 .javascriptIcon {
     border-radius: 7px;
 }
 
-.cheapBox {
-    grid-area: cheapitem;
+.section4 {
     color: white;
-    /* margin: 80px 0 80px 0;
-
     display: flex;
-    justify-self: center;
-    display: block;
-    position: relative; */
-}
-
-/* .cheapText {
-    margin: 200px 0 0 -30%;
-}
-*/
-.cheapH1 {
-    color: rgb(245, 255, 47);
-    font-size: 40px;        
-}
-
-.moneyImg {
-    grid-area: moneyimgitem;
-    height: 350px;
-    /* padding: 0 150px 0 0;
-    position: absolute;
-    right: -65%;
-    top: -50px; */
-}
-
-/* .cheapPar {
-    font-weight: bold;
-    font-size: 25px;
-    padding: 0 15px 0 0;
-    color: white;
-    margin: 30px 0 0 2px;
-} */
-
-.qualityBox {
-    grid-area: qualityitem;
-    color: white;
-    /* margin: 0 0 200px 0;
-    width: 100vw;
-    position: relative;
-    display: flex;
-    justify-self: center;
     flex-direction: column;
-    padding: 0 0 0 15px; */
-}
-/* 
-.qualityText {
-    margin: 200px 0 0 50%;
+    align-items: center;
+    gap: 80px;
 }
 
-.qualityH1 {
-    margin: 10px 0 0 0;
-    color: rgb(47, 234, 255);
+.solutionH1 {
     font-size: 40px;
-}*/
-
-.diamondImg {
-    grid-area: diamondimgitem;
-    /* position: absolute; */
-    /* right: 60%; */
-    /* top: 170px; */
-    height: 350px;
-    width: 350px;
+    margin: 120px 0 80px 0;
 }
-/*
-.qualityPar {
-    color: white;
-    font-weight: bold;
+
+.buildingsWrap {
+    display: flex;
+    align-items: end;
+    gap: 200px;
+}
+
+.house {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.houseImg {
+    height: 250px;
+    width: 250px;
+}
+
+.housePar {
     font-size: 25px;
-    margin: 20px 0 0 2px;
-} */
+    font-weight: bold;
+}
+
+.officeBuilding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.officeBuildingImg {
+    height: 400px;
+}
+
+.officeBuildingPar {
+    font-size: 25px;
+    font-weight: bold;
+}
 
 .imgWrapper {
     margin: 0 0 300px 0;
