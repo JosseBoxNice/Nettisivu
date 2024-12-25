@@ -318,6 +318,51 @@ body {
     font-weight: bold;
 }
 
+/* Previous projects stuff (section5) */
+.section5 {
+    border: solid green;
+    background-color: rgb(17, 17, 17);
+}
+
+.aliotsikko1 {
+    color: white;
+    margin: 0 0 0 0;
+    border: solid blue;
+}
+
+.animated-cards-wrapper {
+    display: flex;
+    align-items: start;
+    height: 500px;
+    border: solid blue;
+}
+.animated-cards {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    justify-content: space-between;
+    border: solid lime;
+}
+
+.card {
+    background-color: white;
+    background: white;
+    height: 200px;
+    padding: 25px;
+    border-radius: 35px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 0.9em;
+    margin: 0 0 10px;
+    color: #666;
+}
+
 .imgWrapper {
     margin: 0 0 300px 0;
     display: flex;
@@ -453,22 +498,8 @@ body {
     color: white;
 }
 
-.aliotsikko1 {
-    color: white;
-    text-align: center;
-    margin: 100px 0 0 0;
-}
-
-@font-face {
-    font-family: 'coolvetica';
-    src: url('fonts/coolvetica_rg-webfont.woff') format('woff'),
-         url('fonts/coolvetica_rg-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .developersBox, .contactUsBox, .learnMoreBox, .card {
-    background-color: rgba(234, 0, 255, 0.623);
+    background-color: white;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);  /* Soft shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition */
 }
@@ -476,63 +507,6 @@ body {
 .developersBox:hover, .contactUsBox:hover, .learnMoreBox:hover, .card:hover {
     transform: translateY(-5px);  /* Slightly lift the box */
     box-shadow: 0 15px 20px rgba(255, 255, 255, 0.384);  /* Enhance the shadow on hover */
-}
-.animated-cards-wrapper {
-    font-family: Arial, sans-serif; /* Keep styling local */
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30vh;
-    margin: 0;
-    padding: 0;
-}
-.animated-cards {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-}
-
-.card {
-    padding: 25px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: transform 2.0s ease, opacity 1.5s ease;
-    border-radius: 35px;
-}
-
-.card h3 {
-    font-weight: bold;
-    margin: 0 0 10px;
-    font-size: 1.2em;
-    color: #333;
-}
-
-.card p {
-    font-size: 0.9em;
-    margin: 0 0 10px;
-    color: #666;
-}
-
-.card a {
-    text-decoration: none;
-    color: #00aeff;
-    font-weight: bold;
-    transition: color 0.3s;
-    text-decoration: underline;
-}
-
-.card a:hover, .card {
-    color: #0288d1;
-}
-
-.card.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* .particle-container {
@@ -547,6 +521,7 @@ body {
     font-size: 5px;
     color: rgba(0, 213, 255, 0.608);
 } */
+
 @keyframes fall {
     0% {
         transform: translateY(-10px);
@@ -556,4 +531,12 @@ body {
         transform: translateY(100vh);
         opacity: 0;
     }
+}
+
+@font-face {
+    font-family: 'coolvetica';
+    src: url('fonts/coolvetica_rg-webfont.woff') format('woff'),
+         url('fonts/coolvetica_rg-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
